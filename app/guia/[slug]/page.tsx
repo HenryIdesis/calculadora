@@ -143,7 +143,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                         </p>
                         <Link
                           href="/ferramenta"
-                          className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[color:var(--brand)] px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(22,58,114,0.18)] transition hover:bg-[color:var(--brand-strong)] focus-ring sm:w-auto"
+                          className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[color:var(--brand)] bg-white px-5 py-3 text-sm font-semibold text-[color:var(--brand)] shadow-sm transition hover:bg-[rgba(22,58,114,0.04)] focus-ring sm:w-auto"
                         >
                           Abrir ferramenta
                           <ArrowRight className="h-4 w-4" />
