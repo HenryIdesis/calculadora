@@ -21,7 +21,7 @@ export default function TwitterImage() {
           Ferramenta e guias para decisão financeira
         </div>
         <div style={{ fontSize: 28, lineHeight: 1.35, maxWidth: 850, marginTop: 16, color: "#4b5563" }}>
-          Conteúdo útil, mobile first e pronto para monetização híbrida.
+          Conteúdo útil, mobile first e focado em clareza para MEI e PJ.
         </div>
       </div>
     ),

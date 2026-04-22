@@ -39,8 +39,8 @@ export default function GuideIndexPage() {
       <section className="py-8">
         <Container>
           <AdSlot
-            title="Slot superior"
-            description="Espaço reservado para monetização no topo da lista editorial, sem poluir o catálogo de artigos."
+            title="Espaço superior"
+            description="Espaço reservado para manter a página equilibrada entre introdução e lista de artigos."
           />
         </Container>
       </section>
@@ -78,12 +78,11 @@ export default function GuideIndexPage() {
       <section className="py-8">
         <Container>
           <AdSlot
-            title="Slot final"
-            description="Espaço reservado para anúncio no fim da listagem, com boa separação visual do conteúdo editorial."
+            title="Espaço final"
+            description="Espaço reservado para manter a separação visual no fim da listagem."
           />
         </Container>
       </section>
     </main>
   );
 }
-

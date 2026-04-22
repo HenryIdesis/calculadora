@@ -11,7 +11,7 @@ export function SiteFooter() {
         <div className="space-y-4">
           <p className="text-lg font-semibold text-[color:var(--brand)]">{site.name}</p>
           <p className="max-w-md text-sm leading-7 text-[color:var(--muted)]">
-            Conteúdo prático para decisão financeira, comparação MEI x PJ, organização de caixa e uma base limpa para monetização com anúncios e afiliados.
+            Conteúdo prático para decisão financeira, comparação MEI x PJ e organização de caixa para pequenos negócios.
           </p>
           <Link href="/contato" className="inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--brand)]">
             <Mail className="h-4 w-4" />
@@ -48,10 +48,9 @@ export function SiteFooter() {
       </Container>
       <Container className="pb-8">
         <p className="border-t border-[color:var(--border)] pt-4 text-xs leading-6 text-[color:var(--muted)]">
-          Conteúdo informativo. Revise sempre regras fiscais e contábeis vigentes antes de tomar decisões. Alguns blocos podem ser monetizados com anúncios ou links de afiliado.
+          Conteúdo informativo. Revise sempre regras fiscais e contábeis vigentes antes de tomar decisões.
         </p>
       </Container>
     </footer>
   );
 }
-

@@ -24,7 +24,7 @@ export default function OpenGraphImage() {
             Finanças para MEI/PJ no Brasil
           </div>
           <div style={{ fontSize: 30, lineHeight: 1.35, maxWidth: 930, opacity: 0.88 }}>
-            Calculadora, guias práticos e estrutura pronta para monetização limpa.
+            Calculadora, guias práticos e conteúdo para decisão financeira.
           </div>
         </div>
         <div style={{ display: "flex", gap: 18, fontSize: 24, opacity: 0.9 }}>
@@ -32,7 +32,7 @@ export default function OpenGraphImage() {
             Comparador MEI x PJ
           </div>
           <div style={{ padding: "14px 22px", border: "1px solid rgba(255,255,255,0.22)", borderRadius: 999 }}>
-            SEO + AdSense
+            Conteúdo útil
           </div>
         </div>
       </div>

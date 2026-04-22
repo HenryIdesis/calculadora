@@ -6,7 +6,7 @@ import { privacySections } from "@/content/legal";
 
 export const metadata: Metadata = buildMetadata({
   title: "Política de Privacidade",
-  description: "Entenda como o site trata dados, cookies, anúncios e integrações de terceiros.",
+  description: "Entenda como o site trata dados, cookies e integrações externas.",
   path: "/privacidade",
 });
 
@@ -21,7 +21,7 @@ export default function PrivacyPage() {
         <div className="flex gap-3">
           <Shield className="mt-0.5 h-5 w-5 text-[color:var(--brand)]" />
           <p className="text-sm leading-7 text-[color:var(--muted)]">
-            Este texto foi preparado para uma operação editorial com possibilidade de AdSense, afiliados e análises de tráfego. Se você integrar serviços externos depois, revise esta página antes de publicar.
+            Este texto explica, de forma direta, como o site lida com dados de navegação e integrações externas. Se o projeto passar a usar serviços novos, esta página deve ser revisada.
           </p>
         </div>
       }
@@ -30,4 +30,3 @@ export default function PrivacyPage() {
     />
   );
 }
-

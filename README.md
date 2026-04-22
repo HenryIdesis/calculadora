@@ -1,6 +1,6 @@
 # calculadora
 
-Site em Next.js para o nicho de finanças de MEI/PJ no Brasil, com calculadora principal, guias editoriais, páginas institucionais e base pronta para AdSense + afiliados.
+Site em Next.js para o nicho de finanças de MEI/PJ no Brasil, com calculadora principal, guias editoriais e páginas institucionais.
 
 ## Stack
 
@@ -53,25 +53,19 @@ Defina a URL final do site antes de publicar:
 NEXT_PUBLIC_SITE_URL=https://seu-dominio.com
 ```
 
-Configure isso antes de submeter o site para o Google AdSense. Canonical, sitemap, Open Graph e metadados dependem da URL final.
-
-Sem essa variável, o projeto usa a URL de desenvolvimento configurada em `lib/site.ts` como fallback para canonical e metadados. Ajuste isso antes de publicar e, principalmente, antes de submeter ao Google AdSense.
+Sem essa variável, o projeto usa a URL de desenvolvimento configurada em `lib/site.ts` como fallback para canonical e metadados. Ajuste isso antes de publicar.
 
 ## Monetização
 
-Os slots de monetização já estão isolados em `components/ad-slot.tsx` e aparecem em:
+Os espaços complementares já estão isolados em `components/ad-slot.tsx` e aparecem em:
 
 - topo
 - meio do conteúdo
 - final da página
 
-Os CTAs de afiliado também ficam separados para facilitar troca futura sem mexer no layout inteiro.
-
 ## Próximos passos sugeridos
 
 1. Ajustar `NEXT_PUBLIC_SITE_URL` para o domínio real.
-2. Conectar Google AdSense nos slots preparados.
-3. Trocar o CTA de afiliado do artigo e da ferramenta por parceiros reais.
-4. Expandir a base editorial para 30+ artigos por cluster.
-5. Adicionar formulário de contato com backend simples ou serviço externo.
-6. Criar páginas de categoria para temas como imposto, caixa e pró-labore.
+2. Expandir a base editorial para 30+ artigos por cluster.
+3. Adicionar formulário de contato com backend simples ou serviço externo.
+4. Criar páginas de categoria para temas como imposto, caixa e pró-labore.

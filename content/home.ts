@@ -8,8 +8,8 @@ export const homeHighlights = [
     text: "Cada guia responde uma dúvida específica de quem empreende sozinho ou com estrutura pequena.",
   },
   {
-    title: "Preparado para monetização limpa",
-    text: "Ad slots e CTAs ficam isolados para não invadir a leitura nem atrapalhar o uso no celular.",
+    title: "Leitura clara no celular",
+    text: "Botões grandes, blocos curtos e navegação simples para quem consulta o site no dia a dia.",
   },
 ];
 
@@ -22,6 +22,5 @@ export const homeTrustPoints = [
 export const homeEditorialPromise = [
   "Conteúdo original e útil",
   "Foco em decisão financeira",
-  "Monetização sem poluir a tela",
+  "Experiência simples e confiável",
 ];
-

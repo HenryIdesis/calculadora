@@ -7,7 +7,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
   title: "Contato",
-  description: "Canal para pautas, correções, dúvidas de conteúdo e propostas de parceria.",
+  description: "Canal para pautas, correções e dúvidas sobre o conteúdo do site.",
   path: "/contato",
 });
 
@@ -15,7 +15,7 @@ export default function ContactPage() {
   return (
     <LegalPage
       title="Contato"
-      description="Use este canal para falar com a equipe editorial sobre correções, parcerias e sugestões de conteúdo."
+      description="Use este canal para falar com a equipe editorial sobre correções, sugestões e dúvidas sobre o conteúdo."
       updatedAt="22 de abril de 2026"
       breadcrumbs={[{ href: "/", label: "Home" }, { label: "Contato" }]}
       intro={
@@ -31,21 +31,20 @@ export default function ContactPage() {
             <MessageCircleMore className="mt-0.5 h-5 w-5 text-[color:var(--brand)]" />
             <div>
               <p className="font-semibold">Sugestões</p>
-              <p className="mt-1 text-sm text-[color:var(--muted)]">Novos temas, melhorias na calculadora e correções.</p>
+              <p className="mt-1 text-sm text-[color:var(--muted)]">Novos temas, melhorias na calculadora e correções de conteúdo.</p>
             </div>
           </div>
           <div className="flex gap-3">
             <ShieldQuestion className="mt-0.5 h-5 w-5 text-[color:var(--brand)]" />
             <div>
-              <p className="font-semibold">Parcerias</p>
-              <p className="mt-1 text-sm text-[color:var(--muted)]">Espaço para afiliados, mídia e cooperação futura.</p>
+              <p className="font-semibold">Dúvidas</p>
+              <p className="mt-1 text-sm text-[color:var(--muted)]">Perguntas sobre cálculo, regime ou organização financeira.</p>
             </div>
           </div>
         </div>
       }
       sections={contactSections}
-      footerNote="Se você for sugerir parceria comercial, descreva o produto, o modelo de monetização e o contexto de uso para evitar propostas desalinhadas com a experiência do site."
+      footerNote="Se a sua mensagem pedir contexto financeiro, inclua a atividade, o faturamento aproximado e o regime atual para facilitar a resposta."
     />
   );
 }
-

@@ -163,7 +163,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         <Container>
           <AdSlot
             title="Slot do meio"
-            description="Espaço reservado para anúncio no meio do artigo, posicionado depois da primeira parte do conteúdo."
+            description="Espaço complementar no meio do artigo, posicionado depois da primeira parte do conteúdo."
           />
         </Container>
       </section>

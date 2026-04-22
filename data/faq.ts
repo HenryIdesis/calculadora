@@ -1,33 +1,32 @@
 export const faqItems = [
   {
-    question: "Este site substitui a orientação de um contador?",
+    question: "A calculadora substitui um contador?",
     answer:
-      "Não. O objetivo aqui é ajudar na decisão e na organização financeira. As páginas trazem estimativas, checklists e boas práticas para uso prático, mas a validação tributária final deve ser feita com contador ou consultor especializado.",
+      "Não. A calculadora ajuda a comparar cenários e organizar a decisão, mas a validação tributária final deve ser feita com contador ou consultor especializado.",
   },
   {
-    question: "A calculadora mostra imposto exato?",
+    question: "Quando faz sentido sair do MEI?",
     answer:
-      "Não. A ferramenta foi desenhada como simulador de decisão. Ela ajuda a comparar cenários de caixa, custo fixo e carga tributária estimada. O valor exato depende de atividade, anexo, faixas de receita e regras vigentes.",
+      "Quando o limite do MEI fica apertado, a operação pede mais estrutura ou a conta do caixa começa a sofrer com regras e restrições do regime.",
   },
   {
-    question: "O site já está preparado para AdSense?",
+    question: "Como eu uso a calculadora sem me perder na conta?",
     answer:
-      "Sim, a estrutura já inclui páginas institucionais, política de privacidade, termos, FAQ, sitemap, robots e slots de anúncio separados do conteúdo principal para facilitar a revisão e a monetização futura.",
+      "Comece pelo faturamento médio, depois inclua custos fixos e o valor que você precisa reservar para imposto. O resultado ajuda a enxergar o que sobra de verdade.",
   },
   {
-    question: "Posso trocar a monetização depois?",
+    question: "Posso usar os guias mesmo sem ser MEI?",
     answer:
-      "Sim. Os blocos de anúncio e CTA foram isolados em componentes próprios para permitir troca por AdSense, afiliados, patrocínios ou remoção completa sem mexer na estrutura das páginas.",
+      "Sim. Os guias também ajudam autônomos e pequenos PJ que precisam organizar caixa, definir retirada e comparar cenários de formalização.",
   },
   {
-    question: "O conteúdo é original?",
+    question: "Os conteúdos servem para decisão prática?",
     answer:
-      "Sim. Os guias foram escritos para uma operação real de utilidade, com foco em pessoas que precisam tomar decisão financeira. O objetivo não é preencher páginas, e sim resolver dúvidas comuns do público MEI e PJ.",
+      "Sim. Cada página foi escrita para responder dúvidas concretas: imposto, faturamento, retirada, nota fiscal e escolha de regime.",
   },
   {
     question: "Como o site organiza os artigos?",
     answer:
-      "Os artigos são estruturados por slug, categoria, data e resumo. Isso facilita expansão editorial, linkagem interna e futuros clusters de SEO em temas como imposto, caixa, pró-labore e migração de regime.",
+      "Os artigos são organizados por tema, categoria e data para facilitar a leitura e a navegação interna.",
   },
 ];
-

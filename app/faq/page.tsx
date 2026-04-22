@@ -8,7 +8,7 @@ import { faqItems } from "@/data/faq";
 
 export const metadata: Metadata = buildMetadata({
   title: "FAQ",
-  description: "Perguntas frequentes sobre a calculadora, o conteúdo editorial e a estrutura do site.",
+  description: "Perguntas frequentes sobre a calculadora, os guias e a organização do site.",
   path: "/faq",
 });
 
@@ -33,8 +33,8 @@ export default function FaqPage() {
           <Breadcrumbs items={[{ href: "/", label: "Home" }, { label: "FAQ" }]} />
           <SectionHeading
             eyebrow="Perguntas frequentes"
-            title="Respostas rápidas para reduzir fricção"
-            description="A página reúne dúvidas comuns sobre uso, monetização, precisão e propósito editorial."
+            title="Respostas rápidas para usar o site sem dúvida"
+            description="A página reúne dúvidas comuns sobre uso, precisão, organização e interpretação dos conteúdos."
           />
           <div className="mt-8 space-y-4">
             {faqItems.map((item) => (

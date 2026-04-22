@@ -67,8 +67,8 @@ export default function ToolPage() {
       <section className="py-8">
         <Container>
           <AdSlot
-            title="Slot superior"
-            description="Espaço reservado para AdSense no topo da página da ferramenta, abaixo da introdução."
+            title="Espaço superior"
+            description="Espaço reservado para manter a introdução respirando antes da calculadora."
           />
         </Container>
       </section>
@@ -97,15 +97,15 @@ export default function ToolPage() {
             </div>
             <div className="rounded-3xl border border-[color:var(--border)] bg-[linear-gradient(180deg,rgba(22,58,114,0.05),rgba(255,255,255,1))] p-6">
               <SectionHeading
-                eyebrow="Monetização futura"
-                title="Espaço de afiliado dentro do fluxo"
-                description="Este bloco pode virar recomendação de planilha, sistema financeiro, conta PJ ou outro parceiro sem alterar a estrutura da ferramenta."
+                eyebrow="Próximo passo"
+                title="O que fazer depois da simulação"
+                description="Depois de comparar os números, revise preço, imposto e recorrência com base no cenário que fizer mais sentido para o seu negócio."
               />
-              <div className="mt-6 rounded-3xl border border-dashed border-[color:var(--border)] bg-white p-5">
+              <div className="mt-6 rounded-3xl border border-[color:var(--border)] bg-white p-5">
                 <div className="flex items-start gap-3">
                   <Info className="mt-0.5 h-5 w-5 text-[color:var(--brand)]" />
                   <div className="text-sm leading-7 text-[color:var(--muted)]">
-                    CTA de afiliado reservado. Aqui você pode inserir uma recomendação contextual, com transparência e sem invadir a experiência do usuário.
+                    Se o cenário ficar apertado, o próximo ajuste costuma estar em preço, frequência de cobrança ou custo fixo.
                   </div>
                 </div>
                 <Link
@@ -124,8 +124,8 @@ export default function ToolPage() {
       <section className="py-8">
         <Container>
           <AdSlot
-            title="Slot do meio"
-            description="Espaço reservado para anúncio no meio do conteúdo, depois do uso da ferramenta e antes dos guias."
+            title="Espaço complementar"
+            description="Espaço reservado para separar a calculadora da próxima leitura sem poluir a interface."
           />
         </Container>
       </section>
@@ -133,11 +133,11 @@ export default function ToolPage() {
       <section className="py-6 sm:py-10">
         <Container>
           <section className="rounded-3xl border border-[color:var(--border)] bg-white p-6 shadow-soft">
-            <SectionHeading
-              eyebrow="Perguntas rápidas"
-              title="O que esta ferramenta faz e o que ela não faz"
-              description="Essas respostas reforçam transparência e ajudam o usuário a interpretar a simulação sem expectativas erradas."
-            />
+              <SectionHeading
+                eyebrow="Perguntas rápidas"
+                title="O que esta ferramenta faz e o que ela não faz"
+                description="Essas respostas reforçam transparência e ajudam o usuário a interpretar a simulação sem expectativas erradas."
+              />
             <div className="mt-8 grid gap-4 lg:grid-cols-2">
               <details className="rounded-2xl border border-[color:var(--border)] bg-[rgba(22,58,114,0.03)] p-4">
                 <summary className="cursor-pointer list-none font-semibold focus-ring">Ela calcula imposto exato?</summary>
@@ -152,8 +152,8 @@ export default function ToolPage() {
                 <p className="mt-3 text-sm leading-7 text-[color:var(--muted)]">Sim. A lógica fica isolada em um arquivo de cálculo, então você pode atualizar a regra sem mexer no layout inteiro.</p>
               </details>
               <details className="rounded-2xl border border-[color:var(--border)] bg-[rgba(22,58,114,0.03)] p-4">
-                <summary className="cursor-pointer list-none font-semibold focus-ring">Isso ajuda no AdSense?</summary>
-                <p className="mt-3 text-sm leading-7 text-[color:var(--muted)]">Sim. Ferramentas úteis com páginas institucionais, FAQ, privacidade, termos e navegação consistente costumam ter uma base melhor para revisão e retenção.</p>
+                <summary className="cursor-pointer list-none font-semibold focus-ring">E se meu faturamento variar muito?</summary>
+                <p className="mt-3 text-sm leading-7 text-[color:var(--muted)]">Use uma média dos últimos meses e compare também um cenário mais conservador. Isso evita decisão apressada com base em um mês fora da curva.</p>
               </details>
             </div>
           </section>
@@ -163,8 +163,8 @@ export default function ToolPage() {
       <section className="py-8">
         <Container>
           <AdSlot
-            title="Slot final"
-            description="Espaço reservado para anúncio no final da página, antes do rodapé e sem competir com a CTA principal."
+            title="Espaço final"
+            description="Espaço reservado para separar a ferramenta do rodapé sem competir com a leitura."
           />
         </Container>
       </section>

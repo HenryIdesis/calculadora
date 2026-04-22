@@ -15,7 +15,7 @@ import { homeEditorialPromise, homeHighlights, homeTrustPoints } from "@/content
 export const metadata: Metadata = buildMetadata({
   title: "Finanças para MEI/PJ",
   description:
-    "Site utilitário com calculadora MEI x PJ, guias práticos, páginas institucionais e estrutura pronta para AdSense e afiliados.",
+    "Ferramenta e guias para MEI e PJ compararem caixa, imposto e decisão financeira com mais clareza.",
   path: "/",
 });
 
@@ -47,10 +47,10 @@ export default function HomePage() {
                 Utilidade financeira para MEI e PJ
               </p>
               <h1 className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-                Decida melhor entre MEI e PJ com conteúdo útil e cálculo simples.
+                Entenda quanto sobra no seu negócio antes de decidir entre MEI e PJ.
               </h1>
               <p className="mt-5 max-w-xl text-base leading-8 text-white/80 sm:text-lg">
-                Um site pronto para tráfego orgânico, mobile first e monetização limpa. Você encontra calculadora, guias práticos e páginas institucionais já pensadas para AdSense.
+                A ideia aqui é simples: ajudar você a comparar imposto, custo fixo e caixa real sem linguagem rebuscada nem ruído desnecessário.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -93,10 +93,7 @@ export default function HomePage() {
 
       <section className="py-8 sm:py-10">
         <Container>
-          <AdSlot
-            title="Espaço superior de monetização"
-            description="Slot reservado para anúncio no topo, sem interferir na primeira ação do usuário no mobile."
-          />
+          <AdSlot />
         </Container>
       </section>
 
@@ -172,22 +169,22 @@ export default function HomePage() {
           <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
             <div className="rounded-3xl border border-[color:var(--border)] bg-white p-6 shadow-soft">
               <SectionHeading
-                eyebrow="Monetização limpa"
-                title="Espaços reservados para anúncio e afiliados"
-                description="Os blocos de monetização ficam isolados em componentes separados para não dominar a leitura nem a navegação no celular."
+                eyebrow="Leitura sem ruído"
+                title="O conteúdo vem antes de tudo"
+                description="O site foi organizado para que a calculadora, os guias e as páginas institucionais fiquem fáceis de encontrar e rápidos de ler no celular."
               />
               <div className="mt-6 space-y-3 text-sm leading-7 text-[color:var(--muted)]">
-                <p>1 slot de anúncio no topo.</p>
-                <p>1 slot de anúncio no meio do conteúdo.</p>
-                <p>1 slot de anúncio no final.</p>
-                <p>CTA de afiliado dentro do fluxo editorial, fácil de trocar depois.</p>
+                <p>Rotas simples, para o usuário chegar rápido ao que precisa.</p>
+                <p>Artigos com hierarquia clara e perguntas reais.</p>
+                <p>Páginas institucionais diretas, sem texto inflado.</p>
+                <p>Fluxo de leitura pensado para quem consulta no meio do trabalho.</p>
               </div>
             </div>
             <div className="rounded-3xl border border-[color:var(--border)] bg-[linear-gradient(180deg,rgba(22,58,114,0.05),rgba(255,255,255,1))] p-6">
               <SectionHeading
                 eyebrow="Como o site se organiza"
-                title="Pronto para crescer sem refatoração grande"
-                description="A estrutura usa rotas claras, componentes reutilizáveis e conteúdo organizado para facilitar expansão por clusters de SEO."
+                title="Estrutura simples de manter"
+                description="A base usa rotas claras, componentes reutilizáveis e conteúdo organizado para facilitar revisão, atualização e expansão editorial."
               />
               <div className="mt-6 grid gap-3 sm:grid-cols-2">
                 {["Home", "Ferramenta", "Sobre", "Contato", "Privacidade", "Termos", "FAQ", "Artigos"].map((item) => (
@@ -205,8 +202,8 @@ export default function HomePage() {
         <Container>
           <SectionHeading
             eyebrow="FAQ rápido"
-            title="Perguntas que costumam aparecer na primeira revisão"
-            description="Esses pontos ajudam na transparência editorial e já antecipam dúvidas comuns do usuário e da revisão do Google."
+            title="Perguntas que realmente ajudam na decisão"
+            description="Esses pontos antecipam dúvidas comuns de quem usa a calculadora e lê os guias pela primeira vez."
           />
           <div className="mt-8 grid gap-4 lg:grid-cols-2">
             {faqItems.slice(0, 4).map((item) => (
@@ -223,10 +220,7 @@ export default function HomePage() {
 
       <section className="py-10 sm:py-14">
         <Container>
-          <AdSlot
-            title="Espaço final de monetização"
-            description="Slot reservado para anúncio no rodapé ou CTA final, separado do conteúdo principal."
-          />
+          <AdSlot />
         </Container>
       </section>
 

@@ -6,7 +6,7 @@ import { aboutSections } from "@/content/legal";
 
 export const metadata: Metadata = buildMetadata({
   title: "Sobre",
-  description: "Conheça a proposta editorial, a lógica de monetização e o foco em conteúdo útil para MEI e PJ.",
+  description: "Conheça a proposta editorial, o objetivo do projeto e o foco em conteúdo útil para MEI e PJ.",
   path: "/sobre",
 });
 
@@ -40,8 +40,7 @@ export default function AboutPage() {
         </div>
       }
       sections={aboutSections}
-      footerNote="Este projeto pode usar anúncios e links de afiliado no futuro, mas a organização foi pensada para manter o conteúdo principal legível e confiável."
+      footerNote="O objetivo deste projeto é manter o conteúdo principal legível, útil e fácil de consultar no celular."
     />
   );
 }
-

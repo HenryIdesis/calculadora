@@ -20,22 +20,22 @@ const disclaimerSections = [
   {
     heading: "Afiliados e publicidade",
     paragraphs: [
-      "O site pode exibir anúncios, recomendações de produtos e links de afiliado em páginas editoriais, ferramentas ou áreas de apoio. Quando isso acontecer, a identificação será feita de forma clara, sem esconder a natureza comercial do link ou da oferta.",
-      "O fato de um conteúdo receber comissão não altera a obrigação de informar com clareza, nem representa garantia de resultado, qualidade, adequação ou preço. A decisão de compra ou contratação é sempre do usuário, que deve avaliar o produto por conta própria.",
+      "Se em algum momento o site usar links externos ou recomendações de produtos, isso será informado de forma clara. A ideia é não confundir leitura editorial com indicação comercial.",
+      "Quando houver qualquer referência externa, o usuário continua responsável por avaliar preço, adequação e condições antes de decidir por conta própria.",
     ],
   },
   {
     heading: "Limitação de responsabilidade",
     paragraphs: [
-      "Este site não se responsabiliza por prejuízos, multas, perdas de oportunidade, atrasos fiscais ou qualquer decisão tomada exclusivamente com base no conteúdo publicado. O uso das informações é de responsabilidade do usuário, que deve conferir a aplicação prática antes de executar qualquer ação.",
-      "Também não assumimos responsabilidade por sites de terceiros, serviços externos, alterações de política de plataformas, indisponibilidade de ferramentas ou mudanças de preço e regra em parceiros externos. Quando houver link para fora, ele será apenas uma referência de navegação ou monetização, e não uma garantia editorial.",
+      "Este site não substitui contador, advogado ou consultor financeiro. As calculadoras e os textos ajudam na organização e na leitura do cenário, mas a decisão final precisa considerar o caso concreto.",
+      "Também não assumimos responsabilidade por informações de terceiros, mudanças de regra ou indisponibilidade de serviços externos. Quando houver link para fora, ele será apenas uma referência de navegação.",
     ],
   },
   {
     heading: "Atualizações e contato",
     paragraphs: [
       "Este documento pode ser atualizado sempre que a operação do site mudar, quando novas integrações forem adicionadas ou quando a legislação exigir ajustes. A versão publicada nesta página é a referência vigente para navegação e consumo do conteúdo.",
-      "Se você quiser questionar algum ponto, reportar inconsistência ou pedir esclarecimento sobre monetização e privacidade, use a página de contato do site. A manutenção dessa transparência é parte da proposta editorial e também ajuda a manter o projeto alinhado com boas práticas de publicação.",
+      "Se você quiser questionar algum ponto, reportar inconsistência ou pedir esclarecimento sobre privacidade, use a página de contato do site.",
     ],
   },
 ];
@@ -43,7 +43,7 @@ const disclaimerSections = [
 export const metadata: Metadata = buildMetadata({
   title: "Aviso legal",
   description:
-    "Aviso legal do site: conteúdo informativo, estimativas financeiras, links de afiliado identificados e limitação de responsabilidade.",
+    "Aviso legal do site: conteúdo informativo, estimativas financeiras e limitação de responsabilidade.",
   path: "/disclaimer",
 });
 
@@ -51,11 +51,11 @@ export default function DisclaimerPage() {
   return (
     <LegalPage
       title="Aviso legal"
-      description="Leia este aviso antes de usar as calculadoras, artigos e recomendações publicadas no site."
+      description="Leia este aviso antes de usar as calculadoras, artigos e orientações publicadas no site."
       updatedAt="22 de abril de 2026"
       breadcrumbs={[{ href: "/", label: "Home" }, { label: "Aviso legal" }]}
       sections={disclaimerSections}
-      footerNote="Ao continuar navegando, você reconhece que o conteúdo do site é informativo e que toda decisão financeira ou tributária precisa ser confirmada com um profissional habilitado."
+      footerNote="Ao continuar navegando, você entende que o conteúdo é informativo e que decisões financeiras ou tributárias precisam ser confirmadas com um profissional habilitado."
     />
   );
 }
