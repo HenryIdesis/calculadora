@@ -7,6 +7,7 @@ import { AdSlot } from "@/components/ad-slot";
 import { ArticleCard } from "@/components/article-card";
 import { SectionHeading } from "@/components/section-heading";
 import { buildMetadata } from "@/lib/seo";
+import { site } from "@/lib/site";
 import { articles } from "@/data/articles";
 import { faqItems } from "@/data/faq";
 import { homeEditorialPromise, homeHighlights, homeTrustPoints } from "@/content/home";
@@ -23,16 +24,15 @@ export default function HomePage() {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Finanças para MEI/PJ",
-    url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com",
-    description:
-      "Ferramenta e guias práticos para MEI e PJ no Brasil, com foco em decisão financeira e monetização limpa.",
+    name: site.name,
+    url: site.url,
+    description: site.description,
   };
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Finanças para MEI/PJ",
-    url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com",
+    name: site.name,
+    url: site.url,
   };
 
   return (

@@ -55,7 +55,7 @@ NEXT_PUBLIC_SITE_URL=https://seu-dominio.com
 
 Configure isso antes de submeter o site para o Google AdSense. Canonical, sitemap, Open Graph e metadados dependem da URL final.
 
-Sem essa variável, o projeto usa `https://example.com` como fallback para canonical e metadados.
+Sem essa variável, o projeto usa a URL de desenvolvimento configurada em `lib/site.ts` como fallback para canonical e metadados. Ajuste isso antes de publicar e, principalmente, antes de submeter ao Google AdSense.
 
 ## Monetização
 

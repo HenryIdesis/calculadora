@@ -7,6 +7,7 @@ import { AdSlot } from "@/components/ad-slot";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { AuthorBadge } from "@/components/author-badge";
 import { buildMetadata } from "@/lib/seo";
+import { site } from "@/lib/site";
 import { articles, getArticleBySlug } from "@/data/articles";
 import { formatDateBR } from "@/lib/format";
 
@@ -45,7 +46,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     notFound();
   }
 
-  const canonical = new URL(`/guia/${article.slug}`, process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com").toString();
+  const canonical = new URL(`/guia/${article.slug}`, site.url).toString();
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -61,7 +62,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     },
     publisher: {
       "@type": "Organization",
-      name: "Finanças para MEI/PJ",
+      name: site.name,
     },
   };
   const breadcrumbSchema = {
