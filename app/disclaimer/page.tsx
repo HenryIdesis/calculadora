@@ -18,7 +18,7 @@ const disclaimerSections = [
     ],
   },
   {
-    heading: "Afiliados e publicidade",
+    heading: "Referências externas",
     paragraphs: [
       "Se em algum momento o site usar links externos ou recomendações de produtos, isso será informado de forma clara. A ideia é não confundir leitura editorial com indicação comercial.",
       "Quando houver qualquer referência externa, o usuário continua responsável por avaliar preço, adequação e condições antes de decidir por conta própria.",

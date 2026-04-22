@@ -3,7 +3,7 @@ export const site = {
   shortName: "MEI/PJ",
   description:
     "Ferramentas e guias práticos para MEI e PJ no Brasil, com foco em decisão financeira, organização do caixa e conteúdo útil de verdade.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://calculadora-tawny-psi.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://simuladormei.com.br",
   locale: "pt-BR",
   contactEmail: "henryidesis.profissional@gmail.com",
   currency: "BRL",

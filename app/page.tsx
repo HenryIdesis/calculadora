@@ -80,11 +80,11 @@ export default function HomePage() {
             </div>
 
             <div className="rounded-[2rem] border border-white/10 bg-white/[0.08] p-5 backdrop-blur">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/60">O que você ganha aqui</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/60">O que este site entrega</p>
               <div className="mt-5 space-y-4">
                 <ValueRow icon={<ChartNoAxesCombined className="h-4 w-4" />} title="Decisão com contexto" text="Compare o caixa líquido e não apenas a carga tributária." />
                 <ValueRow icon={<Shield className="h-4 w-4" />} title="Base editorial confiável" text="Políticas, termos, FAQ e contato já publicados." />
-                <ValueRow icon={<BadgeCheck className="h-4 w-4" />} title="Pronto para escalar" text="Arquitetura simples para adicionar novos clusters de conteúdo." />
+                <ValueRow icon={<BadgeCheck className="h-4 w-4" />} title="Base para novos temas" text="Organização simples para incluir mais guias sem bagunçar a navegação." />
               </div>
             </div>
           </div>

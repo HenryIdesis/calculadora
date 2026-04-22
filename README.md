@@ -50,14 +50,14 @@ npm run start
 Defina a URL final do site antes de publicar:
 
 ```bash
-NEXT_PUBLIC_SITE_URL=https://seu-dominio.com
+NEXT_PUBLIC_SITE_URL=https://simuladormei.com.br
 ```
 
 Sem essa variável, o projeto usa a URL de desenvolvimento configurada em `lib/site.ts` como fallback para canonical e metadados. Ajuste isso antes de publicar.
 
-## Monetização
+## Espaços complementares
 
-Os espaços complementares já estão isolados em `components/ad-slot.tsx` e aparecem em:
+Os espaços reservados em `components/ad-slot.tsx` aparecem em:
 
 - topo
 - meio do conteúdo
