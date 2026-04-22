@@ -154,12 +154,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               ))}
             </div>
 
-            <section className="mt-10 rounded-3xl border border-[color:var(--border)] bg-white p-6 shadow-soft">
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--accent)]">JSON-LD</p>
-              <p className="mt-3 text-sm leading-7 text-[color:var(--muted)]">
-                Esta página já publica metadados de artigo e breadcrumb para melhorar a leitura por buscadores.
-              </p>
-            </section>
           </article>
         </div>
       </Container>
@@ -179,7 +173,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--accent)]">Próxima ação</p>
             <h2 className="mt-3 text-2xl font-semibold tracking-tight">Leve este tema para a ferramenta</h2>
             <p className="mt-3 text-sm leading-7 text-[color:var(--muted)]">
-              Se o artigo despertou dúvida de decisão, a calculadora ajuda a testar cenários reais de caixa. Se você quiser transformar este bloco em afiliado depois, a estrutura já está separada.
+              Se o artigo despertou dúvida de decisão, a calculadora ajuda a testar os números com o seu cenário real antes de tomar qualquer decisão sobre regime ou estrutura.
             </p>
           </section>
         </div>
