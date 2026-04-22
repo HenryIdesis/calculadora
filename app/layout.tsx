@@ -66,6 +66,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${sans.variable} ${serif.variable}`} suppressHydrationWarning>
+      <head>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1689389718281362"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className="min-h-screen text-[color:var(--ink)] antialiased">
         <div className="flex min-h-screen flex-col">
           <SiteHeader />
