@@ -135,15 +135,15 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                   ) : null}
 
                   {index === 0 ? (
-                    <div className="my-8 rounded-3xl border border-[color:var(--border)] bg-[linear-gradient(180deg,rgba(22,58,114,0.05),rgba(255,255,255,1))] p-5">
+                    <div className="my-8 rounded-3xl border border-[color:var(--border)] bg-white p-5 shadow-soft">
                       <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--accent)]">Ferramenta complementar</p>
-                      <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                        <p className="text-sm leading-7 text-[color:var(--muted)]">
+                      <div className="mt-3 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                        <p className="text-sm leading-7 text-[color:var(--ink)]">
                           Use a calculadora principal para testar esse cenário com seus próprios números antes de mudar regime ou preço.
                         </p>
                         <Link
                           href="/ferramenta"
-                          className="inline-flex items-center gap-2 rounded-full bg-[linear-gradient(135deg,var(--brand),var(--brand-strong))] px-4 py-3 text-sm font-semibold text-white focus-ring"
+                          className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[color:var(--brand)] px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(22,58,114,0.18)] transition hover:bg-[color:var(--brand-strong)] focus-ring sm:w-auto"
                         >
                           Abrir ferramenta
                           <ArrowRight className="h-4 w-4" />
