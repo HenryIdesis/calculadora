@@ -53,6 +53,8 @@ Defina a URL final do site antes de publicar:
 NEXT_PUBLIC_SITE_URL=https://seu-dominio.com
 ```
 
+Configure isso antes de submeter o site para o Google AdSense. Canonical, sitemap, Open Graph e metadados dependem da URL final.
+
 Sem essa variável, o projeto usa `https://example.com` como fallback para canonical e metadados.
 
 ## Monetização
@@ -73,4 +75,3 @@ Os CTAs de afiliado também ficam separados para facilitar troca futura sem mexe
 4. Expandir a base editorial para 30+ artigos por cluster.
 5. Adicionar formulário de contato com backend simples ou serviço externo.
 6. Criar páginas de categoria para temas como imposto, caixa e pró-labore.
-

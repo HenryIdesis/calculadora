@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { IBM_Plex_Serif, Manrope } from "next/font/google";
 import "./globals.css";
+import { CookieBanner } from "@/components/cookie-banner";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { site } from "@/lib/site";
@@ -69,6 +70,7 @@ export default function RootLayout({
         <div className="flex min-h-screen flex-col">
           <SiteHeader />
           <div className="flex-1">{children}</div>
+          <CookieBanner />
           <SiteFooter />
         </div>
       </body>

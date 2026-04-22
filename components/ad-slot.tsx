@@ -1,19 +1,29 @@
 type AdSlotProps = {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   className?: string;
+  mode?: "placeholder" | "live";
 };
 
-export function AdSlot({ title, description, className = "" }: AdSlotProps) {
+export function AdSlot({ title, description, className = "", mode = "placeholder" }: AdSlotProps) {
+  if (mode === "placeholder") {
+    return <div aria-hidden="true" role="presentation" className={`min-h-[90px] ${className}`} />;
+  }
+
   return (
     <aside
-      aria-label={title}
-      className={`rounded-3xl border border-dashed border-[color:var(--border)] bg-[rgba(255,255,255,0.82)] px-4 py-5 sm:px-5 ${className}`}
+      aria-label={title ?? "Anúncio"}
+      className={`rounded-3xl border border-[color:var(--border)] bg-[rgba(255,255,255,0.82)] px-4 py-5 sm:px-5 ${className}`}
     >
-      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--muted)]">{title}</p>
-      <p className="mt-2 text-sm leading-6 text-[color:var(--muted)]">{description}</p>
-      <p className="mt-3 text-xs text-[color:var(--muted)]">Espaço reservado para monetização futura sem quebrar a navegação.</p>
+      <div className="min-h-[90px] rounded-2xl p-3">
+        <div className="adsbygoogle min-h-[90px] w-full" aria-label={title ?? "AdSense"} data-slot-description={description ?? ""} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "window.adsbygoogle = window.adsbygoogle || []; (window.adsbygoogle).push({});",
+          }}
+        />
+      </div>
     </aside>
   );
 }
-

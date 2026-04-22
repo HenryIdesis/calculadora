@@ -1,3 +1,5 @@
+import { site } from "@/lib/site";
+
 export const aboutSections = [
   {
     heading: "O que este projeto resolve",
@@ -74,9 +76,8 @@ export const contactSections = [
   {
     heading: "Canal principal",
     paragraphs: [
-      "E-mail editorial: contato@example.com",
+      `E-mail editorial: ${site.contactEmail}`,
       "Se preferir, a página de contato pode ser transformada depois em formulário ou integração com um CRM sem mudar a navegação principal.",
     ],
   },
 ];
-

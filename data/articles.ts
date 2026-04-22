@@ -1,7 +1,12 @@
-export type ArticleSection = {
+﻿export type ArticleSection = {
   heading: string;
   paragraphs?: string[];
   bullets?: string[];
+};
+
+export type ArticleAuthor = {
+  name: string;
+  role: string;
 };
 
 export type Article = {
@@ -12,8 +17,24 @@ export type Article = {
   publishedAt: string;
   updatedAt: string;
   readingTime: string;
+  author: ArticleAuthor;
   sections: ArticleSection[];
 };
+
+const editorialAuthor: ArticleAuthor = {
+  name: "Equipe Editorial",
+  role: "Especialistas em finanças para pequenos negócios",
+};
+
+const officialMeiContribution2026 = "Em 2026, a contribuição mensal do MEI padrão parte de R$ 81,05 para o INSS, conforme a tabela oficial do INSS. Somando ICMS ou ISS, o total passa para R$ 82,05 no comércio, R$ 86,05 nos serviços e R$ 87,05 quando a atividade recolhe os dois tributos. Esse número é pequeno na comparação com o faturamento, mas altera a leitura do caixa quando a margem do negócio é apertada.";
+
+const officialMeiLimit = "O limite anual do MEI continua em R$ 81.000,00 para o ano-calendário, com regra proporcional na abertura e risco de desenquadramento se a receita ultrapassar a faixa legal. Para atividades com receita concentrada em poucos meses, não basta olhar a média mensal. O que importa é o acumulado no ano e o desenho da operação.";
+
+const simpleNationalRates = "No Simples Nacional, as alíquotas iniciais oficiais continuam começando em 4% no Anexo I, 4,5% no Anexo II, 6% no Anexo III, 4,5% no Anexo IV e 15,5% no Anexo V. A alíquota nominal não é igual ao imposto efetivo, porque a conta final depende da receita acumulada, da faixa, do anexo e da parcela a deduzir. Por isso, comparar MEI e PJ apenas pela porcentagem de capa costuma gerar decisão ruim.";
+
+function section(heading: string, paragraphs?: string[], bullets?: string[]): ArticleSection {
+  return { heading, paragraphs, bullets };
+}
 
 export const articles: Article[] = [
   {
@@ -23,32 +44,57 @@ export const articles: Article[] = [
     category: "Decisão",
     publishedAt: "2026-04-01",
     updatedAt: "2026-04-14",
-    readingTime: "6 min",
+    readingTime: "9 min",
+    author: editorialAuthor,
     sections: [
-      {
-        heading: "O ponto de partida",
-        paragraphs: [
-          "O erro mais comum é tratar a migração como um passo simbólico, quando na prática ela precisa ser uma decisão financeira. O que importa não é apenas faturar mais, e sim quanto sobra depois de impostos, custos e obrigações.",
-          "Se o negócio começou a ganhar recorrência, contratar apoio ou emitir notas com frequência, vale observar a estrutura do mês e não só o valor bruto da receita.",
+      section("O limite não é só tributário",
+        [
+          "A decisão entre permanecer no MEI ou migrar para PJ precisa começar pelo caixa, não pela vaidade de ter um CNPJ maior. Quando o empreendedor olha apenas a carga tributária, costuma ignorar custo de contador, emissão de nota, ferramenta financeira, prazo de recebimento e necessidade de separar pró-labore. O resultado é uma comparação incompleta, que parece simples no papel e frágil na operação.",
+          officialMeiLimit,
         ],
-      },
-      {
-        heading: "Sinais práticos de que o MEI ficou apertado",
-        bullets: [
-          "O faturamento já está perto do teto e exige atenção constante.",
-          "Você começou a ter custo fixo relevante com contador, ferramentas ou terceiros.",
-          "A operação precisa de mais previsibilidade para fechar contrato e crescer.",
+        [
+          "Faturamento acima da média mensal de R$ 6.750,00 no ano já exige atenção.",
+          "Contratos mais exigentes podem pedir estrutura PJ mesmo antes do teto legal.",
+          "Custos fixos de conformidade mudam a conta e precisam entrar na simulação.",
+          "A decisão correta é a que preserva margem e organização, não a que apenas muda o cadastro.",
         ],
-        paragraphs: [
-          "Quando esses sinais aparecem juntos, o MEI deixa de ser só uma simplificação tributária e passa a limitar a operação. Nesse caso, a comparação deve considerar o caixa líquido, não apenas o imposto nominal.",
+      ),
+      section("O que o caixa realmente mostra",
+        [
+          "Se o negócio gera receita recorrente, o próximo passo é medir quanto sobra depois de custos operacionais, impostos e retirada do titular. O erro mais comum é tratar faturamento como lucro e calcular a viabilidade da mudança com base nessa ilusão. Em operações pequenas, qualquer desvio de caixa pesa muito mais do que uma diferença pequena de alíquota.",
+          "Quando a comparação é feita mês a mês, a migração para PJ costuma fazer sentido quando o custo adicional da formalização é menor do que o valor de oportunidades perdidas, contratos recusados ou limitações comerciais. Em outras palavras, a pergunta não é 'quanto eu pago a mais?', mas sim 'quanto eu deixo de perder com a estrutura nova?'.",
         ],
-      },
-      {
-        heading: "Como usar este conteúdo na prática",
-        paragraphs: [
-          "Antes de migrar, simule o cenário atual e o cenário PJ com os mesmos números de receita e despesa. A decisão fica mais clara quando você vê o que realmente sobra no fim do mês.",
+      ),
+      section("Como comparar MEI e PJ sem misturar números",
+        [
+          officialMeiContribution2026,
+          simpleNationalRates,
         ],
-      },
+        [
+          "Use o mesmo faturamento nos dois cenários para comparar a mesma base.",
+          "Inclua custo de contador, software, banco e emissão de documentos no cenário PJ.",
+          "Separe retirada pessoal do dinheiro que precisa ficar na operação.",
+          "Se a diferença ficar pequena, a decisão pode ser adiar a migração até o próximo ciclo.",
+        ],
+      ),
+      section("Sinais práticos de que o MEI apertou",
+        [
+          "Quando o empreendedor começa a perder tempo explicando limites de emissão, adaptando preços ou recusando contrato por causa da estrutura, o MEI deixa de ser uma vantagem clara. Isso não significa que o regime está errado, mas que a simplicidade começou a cobrar um preço operacional. O risco é insistir por inércia e acabar tomando decisões reativas mais à frente.",
+          "Outro sinal importante é quando a rotina financeira fica mais sofisticada do que o enquadramento suporta. Se já existe necessidade de pró-labore fixo, reserva de imposto e previsibilidade contratual, o negócio está pedindo disciplina de PJ, mesmo que o faturamento ainda não pareça gigantesco.",
+        ],
+        [
+          "Perda recorrente de contrato por limitação de emissão.",
+          "Dependência de uma única fonte de receita para manter o negócio vivo.",
+          "Custos fixos crescentes com ferramentas, equipe ou apoio contábil.",
+          "Necessidade de demonstrar organização financeira para fechar parcerias.",
+        ],
+      ),
+      section("Decisão com horizonte de 12 meses",
+        [
+          "A migração faz mais sentido quando o empreendimento tem horizonte de crescimento claro. Se a próxima faixa de faturamento tende a ser sustentada, vale preparar a mudança com antecedência, e não esperar o limite estourar. Isso evita corrida para regularizar documentação, reajustar preços e reorganizar pagamentos.",
+          "O ideal é testar cenários de 3, 6 e 12 meses. Se o caixa permanecer confortável mesmo com o custo adicional de PJ, a mudança provavelmente está amadurecida. Se o cenário só funciona com premissas otimistas, o mais prudente é fortalecer operação e preço antes de mudar.",
+        ],
+      ),
     ],
   },
   {
@@ -58,32 +104,57 @@ export const articles: Article[] = [
     category: "Impostos",
     publishedAt: "2026-03-29",
     updatedAt: "2026-04-10",
-    readingTime: "5 min",
+    readingTime: "8 min",
+    author: editorialAuthor,
     sections: [
-      {
-        heading: "Separar imposto de faturamento",
-        paragraphs: [
-          "No MEI, a confusão costuma acontecer quando o empreendedor mistura entrada de dinheiro com lucro. O correto é olhar o faturamento bruto, descontar o custo operacional e então reservar o valor do DAS como obrigação mensal.",
-          "Se o imposto fica no mesmo caixa da despesa pessoal, a sensação de sobra é ilusória.",
+      section("O que entra no DAS",
+        [
+          "No MEI, o imposto não é calculado como no PJ tradicional. O recolhimento é fixo e sai pelo DAS mensal, que reúne contribuição previdenciária e, dependendo da atividade, ICMS e/ou ISS. Isso facilita a vida do empreendedor, mas também pode mascarar o custo real se o caixa não for separado corretamente.",
+          officialMeiContribution2026,
         ],
-      },
-      {
-        heading: "Checklist mensal",
-        bullets: [
-          "Anote o faturamento total do mês.",
-          "Separe custos de operação antes de pensar em retirada.",
-          "Reserve o valor do DAS em uma conta ou subconta específica.",
+        [
+          "Comércio e indústria pagam valor menor que serviços com ISS.",
+          "Atividade mista soma os dois tributos adicionais.",
+          "A contribuição mensal precisa ser tratada como custo obrigatório.",
+          "O pagamento em dia preserva regularidade e evita multa.",
         ],
-        paragraphs: [
-          "Esse hábito reduz atraso, evita surpresa e deixa o caixa mais legível para decidir se o negócio está crescendo de forma saudável.",
+      ),
+      section("Separar imposto de retirada",
+        [
+          "O maior erro financeiro do MEI é misturar recebimento de clientes com dinheiro livre para uso pessoal. Quando isso acontece, o empreendedor usa o saldo da obrigação futura para tapar buraco de curto prazo. O mês parece saudável, mas o problema aparece no vencimento do DAS ou na hora de fechar a declaração anual.",
+          "A forma correta é reservar a contribuição assim que o dinheiro entra, antes de qualquer retirada. Se o negócio precisa de disciplina, o imposto não pode depender da memória do empreendedor. Ele deve existir como uma linha automática do caixa, do mesmo jeito que aluguel ou fornecedor.",
         ],
-      },
-      {
-        heading: "Erro que gera problema",
-        paragraphs: [
-          "O erro mais caro é usar o dinheiro do imposto para cobrir buracos de curto prazo. Quando isso acontece por alguns meses, a operação passa a parecer melhor do que é e a regularização vira corrida atrás do prejuízo.",
+      ),
+      section("Valores de 2026 e vencimento",
+        [
+          "Em 2026, o vencimento do DAS MEI continua no dia 20 de cada mês, considerando a competência anterior. Isso significa que o dinheiro precisa estar separado antes do prazo final, e não no dia do pagamento. Quem trabalha com recebimentos parcelados ou cartão de crédito precisa considerar a defasagem do repasse para não abrir um buraco no caixa.",
+          "A leitura financeira melhora muito quando o empreendedor já sabe que o valor básico é previsível e que o acréscimo de ICMS ou ISS altera o total final. Na prática, isso ajuda a precificar serviço com mais inteligência e reduz a tentação de fazer desconto sem saber a margem real.",
         ],
-      },
+        [
+          "MEI padrão: R$ 81,05 de INSS.",
+          "Comércio/indústria: R$ 82,05 com ICMS.",
+          "Serviços: R$ 86,05 com ISS.",
+          "Atividade mista: R$ 87,05 com ICMS e ISS.",
+        ],
+      ),
+      section("Como organizar o cálculo mensal",
+        [
+          "A fórmula prática é simples: registre o faturamento bruto, subtraia custos operacionais, reserve o DAS e só depois calcule a retirada. Se o empreendedor quiser ser mais preciso, pode também criar uma coluna para despesas recorrentes como maquininha, banco, ferramentas de gestão e marketing. Assim, o resultado do mês fica comparável e não depende de impressão subjetiva.",
+          "Esse método permite enxergar se o negócio está crescendo em receita ou apenas em giro. Um faturamento maior com margem apertada pode gerar a mesma sobra de um faturamento menor. O ponto central é sempre o dinheiro que sobra depois de pagar o que não pode atrasar.",
+        ],
+      ),
+      section("Erros que geram problema na declaração",
+        [
+          "Além do DAS, o MEI precisa cuidar da DASN-SIMEI, que é a declaração anual de faturamento. O prazo continua indo até 31 de maio do ano seguinte, e a informação precisa ser consistente com o que foi registrado ao longo do ano. Quando o empreendedor deixa para conferir tudo no último minuto, aumenta o risco de erro, multa e desenquadramento por inconsistência.",
+          "Por isso, o ideal é manter controle mensal. Quem fecha caixa todo mês consegue preencher a declaração com segurança e ainda enxerga o próprio negócio com mais clareza. O imposto deixa de ser surpresa e passa a ser parte do planejamento.",
+        ],
+        [
+          "Não misturar dinheiro pessoal com receita do negócio.",
+          "Não deixar o DAS vencer por falta de reserva.",
+          "Não confiar em memória para preencher a declaração anual.",
+          "Não usar o faturamento bruto como se fosse lucro.",
+        ],
+      ),
     ],
   },
   {
@@ -93,33 +164,51 @@ export const articles: Article[] = [
     category: "Caixa",
     publishedAt: "2026-03-26",
     updatedAt: "2026-04-09",
-    readingTime: "6 min",
+    readingTime: "8 min",
+    author: editorialAuthor,
     sections: [
-      {
-        heading: "O registro mínimo que funciona",
-        paragraphs: [
-          "Autônomos e prestadores de serviço não precisam de um sistema complexo para começar. Um controle mensal com data, origem, valor, meio de recebimento e status de pagamento já resolve boa parte da bagunça.",
-          "O mais importante é registrar no mesmo dia ou no mesmo ciclo de recebimento.",
+      section("Registro mínimo que funciona",
+        [
+          "Autônomo não precisa de um sistema caro para começar, mas precisa de disciplina. Um controle mensal com data, cliente, serviço, valor, forma de pagamento e status já cria uma visão muito mais útil do que planilhas improvisadas sem padrão. Quando esse registro vira hábito, o caixa deixa de ser uma caixa-preta.",
+          "O ideal é registrar no mesmo dia do recebimento ou, no máximo, no fechamento da semana. Quanto mais tempo passa, maior a chance de esquecer cobrança, errar valor ou misturar entrada do negócio com dinheiro pessoal. A organização financeira nasce de repetição, não de inspiração.",
         ],
-      },
-      {
-        heading: "Separar por destino",
-        bullets: [
-          "Receita do negócio",
-          "Reserva de imposto",
-          "Retirada do titular",
-          "Investimento em operação",
+        [
+          "Data do recebimento.",
+          "Origem da receita.",
+          "Forma de pagamento e prazo de repasse.",
+          "Custo direto associado ao serviço.",
         ],
-        paragraphs: [
-          "Quando cada entrada tem um destino, fica muito mais fácil enxergar se o mês foi realmente lucrativo ou apenas movimentado.",
+      ),
+      section("Separar por destino do dinheiro",
+        [
+          "Uma regra útil é dividir o que entra em quatro destinos: imposto, custo operacional, retirada pessoal e reinvestimento. Isso não precisa ser rigidamente proporcional em todo mês, mas precisa existir como critério. Quando tudo cai no mesmo saldo, o empreendedor perde a noção do que realmente pertence ao negócio.",
+          "Essa separação também melhora a precificação. Se o valor cobrado não cobre imposto, despesas e uma retirada mínima, o problema não está apenas na operação, está no preço. O controle mensal serve para mostrar esse limite antes que ele vire endividamento.",
         ],
-      },
-      {
-        heading: "Ritual semanal",
-        paragraphs: [
-          "Reserve um horário fixo para conferir recebimentos pendentes e atualizar o saldo disponível. Esse hábito reduz esquecimento e deixa a gestão do caixa muito mais confiável.",
+      ),
+      section("Como entender o faturamento bruto",
+        [
+          "Faturamento bruto é o que entrou de clientes antes de qualquer desconto. Ele não é lucro, não é caixa livre e não é receita disponível para saque imediato. Em vendas com cartão, boleto ou plataformas intermediárias, o valor recebido pode sofrer taxas e prazos diferentes, e isso precisa aparecer na análise.",
+          "A diferença entre entrada financeira e disponibilidade real é o que mais confunde autônomo. O dinheiro pode ter sido vendido hoje, mas só cair na conta daqui a alguns dias. Se esse intervalo não for monitorado, o negócio aparenta estar bem enquanto o caixa já está comprometido.",
         ],
-      },
+      ),
+      section("Rotina semanal de conferência",
+        [
+          "Uma revisão semanal já resolve boa parte dos erros. Basta conferir o que entrou, o que ainda falta receber, o que precisa ser reservado para imposto e o que pode ser usado na operação. Esse ritual impede que pendências pequenas virem problema grande no fim do mês.",
+          "Se o autônomo trabalha com muitos clientes pequenos, essa checagem se torna ainda mais importante. Vários recebimentos de baixo valor podem esconder atrasos, pequenas perdas e taxas acumuladas. O resultado final depende da soma desses detalhes.",
+        ],
+        [
+          "Conferir recebimentos pendentes.",
+          "Separar impostos futuros.",
+          "Atualizar custos recorrentes.",
+          "Calcular retirada possível sem apertar o próximo ciclo.",
+        ],
+      ),
+      section("Fechamento mensal e decisão",
+        [
+          "No fechamento mensal, o objetivo não é apenas saber quanto entrou. Ã‰ identificar se a operação tem fôlego, se a margem paga o esforço e se vale subir preço, cortar custo ou mudar a forma de receber. O faturamento sem análise de margem cria sensação de movimento, mas não necessariamente de negócio saudável.",
+          "Quando esse fechamento vira hábito, o autônomo passa a decidir com menos ansiedade. Ele enxerga sazonalidade, cliente mais lucrativo e serviços que consomem tempo demais para o retorno gerado. Isso abre caminho para uma operação mais profissional, mesmo antes de virar PJ.",
+        ],
+      ),
     ],
   },
   {
@@ -129,33 +218,45 @@ export const articles: Article[] = [
     category: "Regime",
     publishedAt: "2026-03-22",
     updatedAt: "2026-04-12",
-    readingTime: "7 min",
+    readingTime: "9 min",
+    author: editorialAuthor,
     sections: [
-      {
-        heading: "O Simples não resolve tudo sozinho",
-        paragraphs: [
-          "A ideia de que PJ sempre paga menos é uma meia verdade. O regime tributário pode ser vantajoso, mas depende da atividade, da receita, do pró-labore e dos custos administrativos.",
-          "A conta precisa considerar o mês inteiro, não só a alíquota de capa.",
+      section("Simples não significa barato em todo caso",
+        [
+          "O Simples Nacional simplifica o pagamento, mas não transforma automaticamente a empresa em operação barata. O que define a eficiência do regime é a combinação entre atividade, anexo, folha, pró-labore e receita acumulada. Se o empreendedor olha só a alíquota nominal, ignora a mecânica da alíquota efetiva e pode escolher o enquadramento errado.",
+          simpleNationalRates,
         ],
-      },
-      {
-        heading: "Fatores que mudam a conta",
-        bullets: [
-          "Frequência de emissão de notas",
-          "Necessidade de contador",
-          "Custo bancário e ferramentas de operação",
-          "Percentual de imposto efetivo",
+      ),
+      section("O que muda entre os anexos",
+        [
+          "Cada anexo tem lógica própria de tributação. Comércio costuma começar no Anexo I, indústria no Anexo II, serviços no Anexo III ou V e algumas atividades específicas caem no Anexo IV. Isso significa que dois negócios com o mesmo faturamento podem pagar cargas bem diferentes, apenas por causa da natureza da atividade.",
+          "A avaliação certa é olhar a atividade principal e o custo de conformidade. Se a empresa exige emissão recorrente, contratação de contador, pró-labore e controle de distribuição de lucro, a aparente vantagem do Simples pode ser consumida por custo fixo. O regime ajuda, mas não resolve má precificação.",
         ],
-        paragraphs: [
-          "Com esses pontos visíveis, a decisão deixa de ser achismo e passa a ser uma comparação concreta entre cenários.",
+        [
+          "Anexo I: comércio, com alíquota inicial de 4%.",
+          "Anexo II: indústria, com alíquota inicial de 4,5%.",
+          "Anexo III: serviços com alíquota inicial de 6%.",
+          "Anexo V: serviços com alíquota inicial de 15,5% quando o fator r não ajuda.",
         ],
-      },
-      {
-        heading: "Pergunta que vale fazer",
-        paragraphs: [
-          "Se você não abrir PJ agora, qual problema real isso gera no próximo trimestre? Se a resposta for só 'parece profissional', talvez ainda não seja hora.",
+      ),
+      section("Quando o PJ passa a fazer sentido",
+        [
+          "Abrir PJ costuma fazer sentido quando o negócio precisa de estrutura, escala ou credibilidade contratual. Isso aparece em contratos maiores, prestação recorrente, exigência de nota fiscal, necessidade de separar pró-labore e uso de ferramentas financeiras mais robustas. O ponto central é que a mudança deve acompanhar a maturidade da operação.",
+          "Se o faturamento ainda é baixo e o custo de conformidade engole a margem, antecipar a abertura pode piorar o resultado em vez de melhorar. O empreendedor precisa comparar o custo total do novo regime com a capacidade real de repasse no preço. Sem esse teste, a decisão vira aposta.",
         ],
-      },
+      ),
+      section("A conta que quase ninguém faz",
+        [
+          "Muita gente compara apenas imposto e esquece a estrutura. Só que PJ envolve banco, contador, sistema, emissão, possíveis certidões, controle de retirada e, em alguns casos, governança para vender para empresas maiores. O custo oculto de organização pode ser pequeno isoladamente, mas é relevante no acumulado do ano.",
+          "Ao montar a simulação, some o gasto mensal fixo e estime o efeito dele sobre a margem. Em operações com margem apertada, qualquer despesa recorrente derruba o lucro proporcionalmente mais do que parece. Ã‰ por isso que a análise precisa ser anual, não só mensal.",
+        ],
+      ),
+      section("Como decidir com mais segurança",
+        [
+          "O melhor caminho é testar três cenários: permanecer no modelo atual, abrir PJ agora e abrir PJ só depois de crescer um pouco mais. Compare receita, custos, impostos e capacidade de fechar novos contratos. Quando o cenário intermediário é claramente superior, a decisão fica madura.",
+          "Se a simulação depende de uma expectativa muito otimista de faturamento, ainda não é hora de migrar. O regime mais inteligente é aquele que preserva caixa, reduz risco e melhora a capacidade de vender. Formalizar por ansiedade custa caro.",
+        ],
+      ),
     ],
   },
   {
@@ -165,26 +266,45 @@ export const articles: Article[] = [
     category: "Organização",
     publishedAt: "2026-03-19",
     updatedAt: "2026-04-08",
-    readingTime: "5 min",
+    readingTime: "8 min",
+    author: editorialAuthor,
     sections: [
-      {
-        heading: "A regra que simplifica tudo",
-        paragraphs: [
-          "Misturar conta pessoal com conta da empresa cria ruído em qualquer negócio pequeno. Separar os fluxos logo no começo evita erro de leitura, ajuda no imposto e deixa claro o que pode ser retirado.",
-          "A solução não precisa ser complexa: contas e cartões distintos já mudam a rotina.",
+      section("Separar não é luxo, é controle",
+        [
+          "Misturar conta pessoal com conta da empresa é uma das maneiras mais rápidas de perder visibilidade sobre o negócio. O empreendedor passa a achar que tudo que entrou pode ser usado, e isso destrói a leitura de margem, imposto e retirada. A separação serve justamente para impedir essa confusão.",
+          "Não é preciso montar uma estrutura sofisticada. Em muitos casos, uma conta PJ exclusiva, um cartão exclusivo e uma rotina de transferência com data fixa já resolvem a maior parte dos problemas. O que importa é criar fronteira clara entre dinheiro do negócio e dinheiro da pessoa física.",
         ],
-      },
-      {
-        heading: "Fluxo recomendado",
-        bullets: [
-          "Receita entra na conta do negócio.",
-          "Reserva de imposto sai automaticamente.",
-          "Retirada pessoal acontece em data fixa.",
+      ),
+      section("Como desenhar o fluxo",
+        [
+          "O desenho mais simples começa com entrada de receita na conta da empresa, separação de imposto imediatamente e transferência para retirada apenas em data definida. Dessa forma, o saldo operacional passa a refletir a realidade do negócio e não o apetite de consumo do titular. A disciplina vale mais do que a sofisticação.",
+          "Quem faz esse fluxo mensalmente consegue perceber rapidamente se o negócio gera caixa suficiente para sustentar a vida pessoal. Se não gera, o problema não se resolve com mais retiradas, e sim com preço, volume ou custo menor. O fluxo correto expõe a verdade da operação.",
         ],
-        paragraphs: [
-          "Esse desenho dá previsibilidade e reduz a tentação de usar o caixa do negócio como se fosse saldo livre.",
+        [
+          "Receita entra no caixa do negócio.",
+          "Imposto é reservado no mesmo dia.",
+          "Retirada do titular segue data fixa.",
+          "Investimento na operação tem aprovação separada.",
         ],
-      },
+      ),
+      section("O que não pode misturar",
+        [
+          "Alguns itens nunca deveriam transitar sem registro, como saques aleatórios, compras domésticas no cartão do negócio e despesas do negócio pagas com dinheiro pessoal sem anotação. Quando isso acontece, o fechamento mensal fica impreciso e o empreendedor perde a capacidade de saber o que é custo, o que é retirada e o que é investimento.",
+          "A solução é manter um registro simples de movimentações entre pessoa física e jurídica. Pequenos repasses precisam ter finalidade clara. Se a operação ficar confusa, a contabilidade futura também ficará confusa, e isso cria retrabalho que poderia ser evitado desde cedo.",
+        ],
+      ),
+      section("Como usar isso para melhorar preço",
+        [
+          "Separar contas também ajuda a precificar. Ao visualizar o lucro real do negócio, o empreendedor entende quanto precisa faturar para sustentar sua retirada sem comprometer a empresa. Isso evita preço arbitrário e reduz aquela sensação de trabalhar muito para sobrar pouco.",
+          "Em setores de serviço, essa clareza é ainda mais importante porque parte do esforço é invisível no dia a dia. A conta separada mostra se o negócio está pagando o custo invisível de gestão, atendimento, revisão, cobrança e tecnologia. O preço certo cobre tudo isso, não só a entrega final.",
+        ],
+      ),
+      section("Rotina de manutenção",
+        [
+          "Uma vez por semana, vale conferir saldo, transferências e pendências. Uma vez por mês, faça o fechamento e ajuste os valores de retirada, reserva de imposto e reinvestimento. Se o negócio crescer, o modelo pode evoluir para subcontas ou contas adicionais sem mudar a lógica principal.",
+          "A regra prática é simples: quanto mais previsível o fluxo, menos o dinheiro controla o empreendedor. A empresa passa a operar como empresa, mesmo que ainda seja pequena. Isso é o que cria base para crescimento sem desorganização.",
+        ],
+      ),
     ],
   },
   {
@@ -194,26 +314,47 @@ export const articles: Article[] = [
     category: "Controle",
     publishedAt: "2026-03-18",
     updatedAt: "2026-04-07",
-    readingTime: "5 min",
+    readingTime: "8 min",
+    author: editorialAuthor,
     sections: [
-      {
-        heading: "Não é sobre guardar tudo",
-        paragraphs: [
-          "Guardar comprovante por guardar cria arquivo morto. O que faz diferença é registrar despesas que realmente têm relação com a atividade e podem ser justificadas com facilidade.",
-          "Esse hábito ajuda a entender a estrutura de custo e evita perda de tempo na hora de organizar o mês.",
+      section("Guardar por finalidade, não por mania",
+        [
+          "Guardar comprovante sem critério transforma o financeiro em arquivo morto. O que ajuda o negócio é separar despesas por finalidade, categoria e relação com a atividade. Quando a despesa não tem vínculo claro com operação, ela não ajuda na tomada de decisão e ainda polui o fechamento mensal.",
+          "A prática correta é registrar logo na contratação ou pagamento o motivo da despesa, a data, o valor e o impacto esperado. Isso facilita contabilidade, organização fiscal e leitura gerencial. O empreendedor deixa de confiar na memória e começa a criar histórico útil.",
         ],
-      },
-      {
-        heading: "Classificação útil",
-        bullets: [
-          "Operação: ferramentas, tráfego, taxas e banco.",
-          "Administração: contador, sistemas e apoio externo.",
-          "Expansão: investimento que aumenta capacidade ou margem.",
+      ),
+      section("As três categorias que mais ajudam",
+        [
+          "Para pequeno negócio, três caixas analíticas costumam ser suficientes: operação, administração e expansão. Operação reúne tudo que mantém a entrega funcionando. Administração cobre contador, banco, sistemas e apoio. Expansão inclui investimento em ferramenta, tráfego, treinamento ou estrutura que aumenta capacidade futura.",
+          "Separar assim reduz a sensação de que todas as despesas são iguais. Algumas mantêm o negócio vivo; outras tentam preparar o crescimento; algumas apenas sustentam a burocracia. Sem essa distinção, o empreendedor corta o que não deveria e mantém o que não traz retorno.",
         ],
-        paragraphs: [
-          "Com essas três categorias, a leitura do negócio fica mais clara e a tomada de decisão fica mais rápida.",
+        [
+          "Operação: entrega, ferramentas e taxas.",
+          "Administração: contador, emissão e controle.",
+          "Expansão: marketing, capacitação e melhoria de processo.",
+          "Pessoal: só entra no negócio se for retirado depois, com registro.",
         ],
-      },
+      ),
+      section("O que costuma gerar dúvida",
+        [
+          "Dúvidas aparecem em despesas híbridas, como internet, celular, energia, coworking e plataformas assinadas em nome da pessoa física. Nesses casos, o importante é avaliar se a despesa realmente existe por causa do negócio e qual parte dela pode ser atribuída à atividade. Não é preciso inventar dedução; é preciso justificar o uso.",
+          "Se a despesa é pequena e recorrente, ela deve estar no custo fixo, não escondida como pagamento casual. Quando a operação cresce, esse tipo de detalhe define o nível real de margem. Ã‰ melhor registrar de forma conservadora do que superestimar lucro.",
+        ],
+      ),
+      section("Como isso melhora a decisão de preço",
+        [
+          "Preço bom não nasce de chute. Ele vem da soma de custo direto, custo fixo, parcela de imposto, comissão, retrabalho e margem mínima. As despesas dedutíveis, quando registradas, ajudam a descobrir quanto custa manter o negócio funcionando mesmo nos meses fracos.",
+          "Sem esse registro, o empreendedor costuma cobrar com base em concorrente ou feeling. O problema é que concorrente pode ter estrutura diferente, imposto diferente e volume diferente. A sua conta precisa ser a sua conta.",
+        ],
+      ),
+      section("Checklist de controle",
+        [
+          "Comprovante digital salvo no mesmo dia da compra.",
+          "Categoria definida antes do fechamento do mês.",
+          "Despesa recorrente revisada a cada renovação.",
+          "Gasto pessoal fora do financeiro do negócio, salvo retirada formal.",
+        ],
+      ),
     ],
   },
   {
@@ -223,26 +364,45 @@ export const articles: Article[] = [
     category: "Pró-labore",
     publishedAt: "2026-03-14",
     updatedAt: "2026-04-11",
-    readingTime: "6 min",
+    readingTime: "8 min",
+    author: editorialAuthor,
     sections: [
-      {
-        heading: "O pró-labore precisa caber no mês",
-        paragraphs: [
-          "Pró-labore não é uma retirada emocional, e sim uma decisão de estrutura. Se ele ocupa mais caixa do que o negócio suporta, o problema aparece nas próximas semanas como atraso, aperto e falta de fôlego.",
-          "Definir um valor fixo e revisar periodicamente funciona melhor do que sacar conforme a ansiedade do mês.",
+      section("Pró-labore não é saque livre",
+        [
+          "Pró-labore é remuneração pela gestão e pelo trabalho do titular, não um saque qualquer da conta da empresa. Em pequenos negócios, essa diferença faz muita coisa dar errado, porque o empreendedor confunde lucro, retirada e caixa operacional. Se o valor sai sem critério, a empresa perde capacidade de pagar seus compromissos.",
+          "O melhor desenho é definir um valor fixo, alinhado à realidade de receita e custos, e revisar esse valor em ciclos definidos. Assim, a retirada pessoal fica previsível e a empresa não sofre picos de consumo que desorganizam o mês.",
         ],
-      },
-      {
-        heading: "Como testar a saúde do valor",
-        bullets: [
-          "O negócio continua pagando custos e imposto sem atraso?",
-          "A reserva de emergência da empresa cresce ou encolhe?",
-          "A retirada pessoal depende de faturamento inesperado?",
+      ),
+      section("Como testar o valor",
+        [
+          "Um pró-labore saudável precisa responder a três perguntas: o negócio paga seus custos sem atraso, a reserva de imposto continua crescendo e ainda sobra caixa para imprevistos? Se a resposta for não, o valor está acima do que a operação suporta hoje.",
+          "Muita gente calcula pró-labore a partir da necessidade pessoal e não da capacidade do negócio. Esse caminho inverte a lógica. A remuneração do titular precisa caber no caixa primeiro; depois, o preço e a receita devem ser ajustados para sustentar essa retirada com segurança.",
         ],
-        paragraphs: [
-          "Se a resposta para uma dessas perguntas for negativa, o pró-labore provavelmente está acima do que o caixa suporta hoje.",
+        [
+          "O caixa fecha o mês com folga depois da retirada?",
+          "A empresa mantém reserva mínima de segurança?",
+          "O faturamento é recorrente o suficiente para bancar valor fixo?",
+          "A retirada do titular não pode matar capital de giro.",
         ],
-      },
+      ),
+      section("O que muda com regime PJ",
+        [
+          "Quando o negócio passa para PJ, o pró-labore deixa de ser um detalhe e vira peça central da estrutura financeira. Ele ajuda a separar remuneração, distribuir lucro e organizar impostos sobre a retirada. Também facilita a leitura contábil e a previsibilidade de longo prazo.",
+          "Sem pró-labore formalizado, o empreendedor corre o risco de misturar retirada com distribuição de lucro e criar ruído fiscal. Mesmo em operações menores, é melhor adotar uma estrutura mínima desde cedo do que improvisar quando a empresa já está crescendo.",
+        ],
+      ),
+      section("O erro de crescer a retirada antes da receita",
+        [
+          "Se a retirada aumenta antes da receita acompanhar, a empresa começa a financiar o estilo de vida do titular com capital que deveria manter a operação viva. Isso é especialmente perigoso em negócios com sazonalidade, porque o mês forte mascara o mês fraco. O pró-labore precisa respeitar o ciclo médio, não o melhor mês do ano.",
+          "Para evitar esse erro, use uma base conservadora e revise apenas quando a receita recorrente provar que o novo nível é sustentável. Quando a empresa cresce, a retirada também pode crescer, mas precisa ser acompanhada de margem, previsibilidade e reserva.",
+        ],
+      ),
+      section("Como manter disciplina",
+        [
+          "Defina data fixa de retirada, valor fixo e regra de revisão. Isso evita pedidos aleatórios ao caixa e cria previsibilidade para o negócio e para a pessoa física. Se houver sobra real, ela pode ser tratada como lucro distribuído ou reinvestimento, conforme a estrutura legal e contábil do empreendimento.",
+          "Disciplina de pró-labore é um dos sinais mais claros de maturidade financeira. Ela protege a empresa e protege o empreendedor de tomar decisões curtas para problemas longos.",
+        ],
+      ),
     ],
   },
   {
@@ -252,26 +412,45 @@ export const articles: Article[] = [
     category: "Planejamento",
     publishedAt: "2026-03-11",
     updatedAt: "2026-04-06",
-    readingTime: "6 min",
+    readingTime: "8 min",
+    author: editorialAuthor,
     sections: [
-      {
-        heading: "A simplicidade também tem custo",
-        paragraphs: [
-          "MEI compensa quando a operação realmente se beneficia da simplicidade. Quando o negócio cresce, a estrutura pode ficar pequena para contratos, volume de notas e custo de organização.",
-          "Se a economia tributária é pequena perto da perda de oportunidades ou da limitação de faturamento, vale rever a estratégia.",
+      section("Simplicidade tem limite",
+        [
+          "O MEI é ótimo para iniciar operação com pouco custo e burocracia reduzida. O problema é que muita gente trata essa simplicidade como solução permanente, mesmo quando o negócio já cresceu. Quando a estrutura fica pequena para o volume de receita, ela para de ajudar e passa a travar crescimento.",
+          officialMeiLimit,
         ],
-      },
-      {
-        heading: "Perguntas objetivas",
-        bullets: [
-          "Eu perdi negócios por causa do limite do MEI?",
-          "Meu custo de operação cabe no modelo atual?",
-          "A migração reduz risco ou cria burocracia desnecessária?",
+      ),
+      section("Onde a conta começa a apertar",
+        [
+          "A conta aperta quando o custo de ficar no MEI passa a ser menor do que a perda de oportunidade causada pelo enquadramento. Isso pode acontecer em contrato que exige nota mais robusta, em negócio que está perto do limite anual ou em operação que já precisa de contador e de caixa organizado. O problema não é apenas tributário; é estratégico.",
+          "Muitos empreendedores ignoram que o MEI também impõe limites de escala, contratação e imagem profissional. Se a empresa começa a recusar trabalho porque o cadastro não acompanha a demanda, a vantagem do regime diminui. Nesse momento, a análise precisa olhar crescimento, não apenas imposto.",
         ],
-        paragraphs: [
-          "Responder com números ajuda mais do que comparar impressões vagas sobre formalização.",
+        [
+          "Limite anual já virou assunto recorrente no seu planejamento.",
+          "Clientes pedem estrutura PJ para fechar contrato.",
+          "Você já mantém separação de imposto e retirada como se fosse PJ.",
+          "A economia tributária é pequena perto do ganho de estrutura.",
         ],
-      },
+      ),
+      section("Quando o custo de permanência cresce",
+        [
+          officialMeiContribution2026,
+          "Mesmo sendo um valor baixo, o MEI passa a custar mais quando o negócio precisa de controles paralelos para contornar a simplicidade do regime. Se o empreendedor cria processo, planilha e rotina de separação para compensar limitações operacionais, parte da vantagem já foi consumida pela própria complexidade adicionada.",
+        ],
+      ),
+      section("O que observar antes de desenquadrar",
+        [
+          "Antes de mudar, compare a receita projetada com o custo fixo novo. Considere a contabilidade, o banco, a emissão, a eventual necessidade de nota recorrente e o efeito do pró-labore. Em muitos casos, a migração faz sentido, mas ela precisa acontecer com preço e margem ajustados.",
+          "Também vale simular uma queda de receita. Se o negócio só fica viável em PJ no cenário ideal, a transição pode estar cedo demais. A decisão certa precisa sobreviver a um mês normal, não apenas a um mês excelente.",
+        ],
+      ),
+      section("Regra prática de decisão",
+        [
+          "Se a operação já precisa de estrutura de empresa para vender, cobrar e entregar com segurança, o MEI provavelmente está deixando de compensar. Quando o regime deixa de ser ferramenta e vira obstáculo, vale migrar com planejamento. O melhor momento é antes do teto virar emergência.",
+          "A decisão final deve sair de uma comparação objetiva: receita, custos, impostos, previsibilidade e espaço para crescer. Quando esses cinco pontos favorecem a empresa maior, o MEI deixou de ser solução principal.",
+        ],
+      ),
     ],
   },
   {
@@ -281,26 +460,45 @@ export const articles: Article[] = [
     category: "Reserva",
     publishedAt: "2026-03-09",
     updatedAt: "2026-04-05",
-    readingTime: "5 min",
+    readingTime: "7 min",
+    author: editorialAuthor,
     sections: [
-      {
-        heading: "Reserva automática é melhor do que memória",
-        paragraphs: [
-          "A reserva de imposto deve sair da receita assim que o dinheiro entra. Se você espera 'ver o que sobra', a chance de usar o valor em outra coisa é alta.",
-          "Mesmo uma separação simples em conta ou subconta já melhora a disciplina do negócio.",
+      section("Reserva é obrigação, não sobra",
+        [
+          "A reserva de imposto precisa ser tratada como custo obrigatório, não como o que sobrou depois das despesas. Se o empreendedor espera o fim do mês para pensar nisso, geralmente já gastou o dinheiro que deveria ter sido separado. Em negócio pequeno, essa disciplina é ainda mais importante porque o caixa é sensível a qualquer atraso.",
+          "O princípio é simples: entrou receita, separou imposto, depois pagou custos e só então avaliou retirada. Quando essa ordem é respeitada, a empresa para de viver no improviso e consegue fechar mês com mais previsibilidade.",
         ],
-      },
-      {
-        heading: "Regra prática",
-        bullets: [
-          "Separe um percentual fixo logo no recebimento.",
-          "Revise a estimativa a cada fechamento mensal.",
-          "Trate a reserva como custo obrigatório, não como saldo livre.",
+      ),
+      section("Quanto separar",
+        [
+          "No MEI, o valor é fixo e conhecido. No PJ, a reserva precisa acompanhar regime, anexo, alíquota efetiva e histórico de receita. Quem trabalha com Simples Nacional não deve usar percentual de internet sem validar a atividade. O ideal é construir a reserva a partir da sua própria realidade tributária.",
+          "A reserva também pode ser maior do que o imposto mínimo quando a empresa tem sazonalidade ou faturamento em crescimento. Isso reduz risco de sufoco no fechamento do mês e evita que o dinheiro reservado precise ser complementado com capital de giro emergencial.",
         ],
-        paragraphs: [
-          "Isso evita surpresa, reduz estresse e melhora a previsibilidade do caixa.",
+        [
+          "No MEI, reserve o DAS completo assim que a receita entrar.",
+          "No PJ, use percentual compatível com regime e histórico.",
+          "Se a receita variar muito, considere colchão adicional.",
+          "Imposto deve sair antes da retirada do titular.",
         ],
-      },
+      ),
+      section("Onde guardar a reserva",
+        [
+          "O melhor local é aquele que separa fisicamente o dinheiro do restante da operação. Pode ser uma conta específica, um subsaldo ou uma rotina de transferência para uma conta de liquidez rápida. O importante é impedir que a reserva vire saldo livre. Se o dinheiro aparece junto do caixa geral, a tentação de usá-lo aumenta.",
+          "Guardar no mesmo lugar que as despesas diárias cria risco. Pequenas compras, adiantamentos e saques acabam consumindo a reserva sem controle. A empresa precisa enxergar o imposto como comprometido desde o começo, não como dinheiro esperando uma decisão.",
+        ],
+      ),
+      section("Reserva e declaração anual",
+        [
+          "No MEI, a reserva de imposto ajuda também a preparar a DASN-SIMEI. Como a declaração anual exige registro do faturamento do ano, a disciplina mensal evita desencontro entre dinheiro movimentado e dado declarado. Quem faz fechamento mensal chega em maio com tudo organizado.",
+          "Isso reduz stress e diminui o risco de multa por atraso ou erro de informação. A reserva financeira, nesse caso, não protege apenas o pagamento mensal; ela protege a regularidade do negócio ao longo do ano inteiro.",
+        ],
+      ),
+      section("Regras de manutenção",
+        [
+          "Revise a reserva todo mês e ajuste sempre que o faturamento mudar de patamar. Se o negócio crescer, o percentual reservado também pode crescer. Se o faturamento cair, o colchão de segurança não deve desaparecer; ele protege a empresa justamente nos meses de menor entrada.",
+          "A reserva certa é aquela que impede surpresa e permite que o empreendedor pense no crescimento em vez de correr atrás de imposto atrasado.",
+        ],
+      ),
     ],
   },
   {
@@ -310,25 +508,47 @@ export const articles: Article[] = [
     category: "Erros",
     publishedAt: "2026-03-06",
     updatedAt: "2026-04-04",
-    readingTime: "7 min",
+    readingTime: "8 min",
+    author: editorialAuthor,
     sections: [
-      {
-        heading: "Os erros que mais custam caro",
-        bullets: [
-          "Não registrar entradas e saídas com consistência.",
-          "Misturar retirada pessoal com lucro do negócio.",
-          "Aumentar custo fixo antes de validar receita.",
+      section("Confundir faturamento com lucro",
+        [
+          "Esse é o erro mais caro e também o mais comum. O negócio entra dinheiro, o empreendedor se sente melhor e presume que houve lucro. Só que impostos, taxas, custos fixos, custo direto e retirada ainda não foram considerados. Quando essa conta é ignorada, a operação parece saudável e, no fim, sobra pouco ou nada.",
+          "A correção começa com uma visão simples: o que entra não é tudo do dono. Primeiro vêm as obrigações, depois a margem. Se a ordem se inverte, a empresa financia o erro com o próprio caixa.",
         ],
-        paragraphs: [
-          "Esses erros criam a sensação de progresso, mas enfraquecem o caixa. O negócio parece vivo, mas não ganha fôlego.",
+      ),
+      section("Crescer custo antes de testar receita",
+        [
+          "Outro erro frequente é contratar ferramenta, equipe ou estrutura fixa antes de validar a previsibilidade da receita. O empreendedor sente que está profissionalizando o negócio, mas na prática está ampliando o risco. Custo fixo exige faturamento recorrente, não promessa de crescimento.",
+          "Ã‰ melhor crescer por etapas, testando a resposta do mercado, do que montar uma estrutura que o caixa ainda não consegue sustentar. O dinheiro economizado numa fase inicial pode ser o que mantém a operação viva quando um cliente grande atrasa o pagamento.",
         ],
-      },
-      {
-        heading: "Como evitar",
-        paragraphs: [
-          "Uma rotina semanal de conferência já corta boa parte do problema. Não é glamour, é controle.",
+        [
+          "Aumentar custo fixo antes de estabilizar receita.",
+          "Assumir compromisso recorrente sem reserva.",
+          "Trocar preço por desconto sem entender margem.",
+          "Ignorar sazonalidade e fechar o mês com base em um pico isolado.",
         ],
-      },
+      ),
+      section("Misturar retirada pessoal e caixa",
+        [
+          "Quando não existe separação clara, o empreendedor retira mais do que deveria nos meses bons e depois sofre nos meses fracos. Isso cria um ciclo de ansiedade e reposição. O problema não é só financeiro, é também comportamental, porque o dinheiro perde sinalização de prioridade.",
+          "A conta separada, o pró-labore definido e a reserva de imposto reduzem esse ruído. O negócio passa a operar com lógica própria, e a pessoa física para de interferir em cada decisão de curto prazo.",
+        ],
+      ),
+      section("Não revisar o preço",
+        [
+          "Preço parado em cenário de custo que sobe é caminho curto para margem cair. Taxas de pagamento, imposto, serviço de terceiros e tempo gasto em retrabalho entram no preço, mesmo que o empreendedor não goste de encarar isso. Se o preço não acompanha a estrutura, o lucro vai embora silenciosamente.",
+          "A revisão precisa ser periódica e baseada em número. Não se trata de aumentar preço aleatoriamente, e sim de entender qual valor cobre o negócio e ainda deixa margem saudável. Sem essa revisão, o empreendedor vende muito e acumula sensação de cansaço.",
+        ],
+      ),
+      section("Checklist de correção",
+        [
+          "Feche o caixa mensalmente.",
+          "Separe retirada pessoal da operação.",
+          "Revise preço sempre que custo ou imposto mudar.",
+          "Crie reserva mínima para imposto e imprevistos.",
+        ],
+      ),
     ],
   },
   {
@@ -338,23 +558,45 @@ export const articles: Article[] = [
     category: "Recebimento",
     publishedAt: "2026-03-03",
     updatedAt: "2026-04-03",
-    readingTime: "5 min",
+    readingTime: "7 min",
+    author: editorialAuthor,
     sections: [
-      {
-        heading: "Recebimento parcelado exige previsão",
-        paragraphs: [
-          "Vender por cartão ou boleto facilita o fechamento comercial, mas traz atraso entre venda e entrada do dinheiro. Se isso não entra na conta, o caixa sofre mesmo com faturamento bom.",
-          "A solução é olhar prazo, taxa e volume de parcelas antes de assumir que a venda valeu a pena.",
+      section("Vender é diferente de receber",
+        [
+          "Cartão e boleto ajudam a fechar negócio, mas criam um intervalo entre a venda e a entrada do dinheiro. Quem não acompanha esse intervalo pode achar que faturou bem e, ao mesmo tempo, descobrir que o caixa está apertado. O problema não está no meio de pagamento, e sim na falta de leitura do prazo.",
+          "A solução é registrar prazo médio, taxas e repasse líquido de cada canal. Isso permite decidir se vale oferecer parcelamento, antecipação ou desconto à vista. O preço certo depende do fluxo de recebimento, não apenas da vontade do cliente.",
         ],
-      },
-      {
-        heading: "Checklist",
-        bullets: [
-          "Anote prazo médio de recebimento.",
-          "Desconte taxas da maquininha ou boleto.",
-          "Separe o dinheiro de vendas futuras do caixa livre.",
+      ),
+      section("Como controlar taxas",
+        [
+          "Toda transação tem custo. Maquininha, boleto, gateway, antecipação e estorno consomem margem. Se o negócio não calcula isso, a venda só parece boa. Em serviços de baixo ticket, taxa pequena parece irrelevante até o final do mês, quando já comeu parte importante da margem.",
+          "Registrar taxa por canal ajuda a comparar qual meio de pagamento vale mais a pena para cada perfil de cliente. Em alguns casos, o desconto para pagamento à vista é melhor do que absorver meses de repasse parcelado. Em outros, o parcelamento aumenta conversão e compensa o custo. O número decide.",
         ],
-      },
+        [
+          "Taxa por canal precisa ser conhecida.",
+          "Antecipação só faz sentido quando o caixa está apertado e a margem aguenta.",
+          "Boleto pode melhorar recebimento, mas exige conferência de inadimplência.",
+          "Parcelamento só vale se a margem continuar saudável depois do desconto.",
+        ],
+      ),
+      section("O que fazer com parcelas futuras",
+        [
+          "O dinheiro que ainda não caiu não deve ser tratado como caixa livre. Ele precisa ser separado como recebível futuro, porque já está comprometido com custos e obrigações. Isso evita gastar hoje algo que só será recebido amanhã.",
+          "Se o negócio vende com recorrência, vale criar uma visão de agenda de recebimentos. Assim, o empreendedor sabe quanto entra por semana e consegue proteger o dinheiro do imposto e da retirada. Sem isso, o cartão dá sensação de crescimento enquanto o saldo real fica travado.",
+        ],
+      ),
+      section("Quando vale antecipar",
+        [
+          "Antecipar recebíveis pode ser útil em períodos curtos de pressão de caixa, mas não deve virar muleta permanente. Quando a empresa antecipa sempre, ela paga caro por um problema estrutural de preço ou de capital de giro. A solução real é reforçar margem e melhorar previsão, não só acelerar o dinheiro.",
+          "A decisão deve considerar custo da antecipação, impacto no caixa e previsibilidade dos próximos recebimentos. Se o custo financeiro come a margem, o alívio de curto prazo vira problema maior no médio prazo.",
+        ],
+      ),
+      section("Rotina de fechamento",
+        [
+          "Feche semanalmente o que foi vendido, o que foi recebido e o que ainda está pendente. Esse hábito reduz erro em canais digitais e dá base para decidir melhor sobre preço, prazo e desconto. Quanto mais simples a rotina, menos chance de confusão.",
+          "Com o tempo, o negócio passa a entender qual forma de pagamento vende mais e qual forma de pagamento realmente sobra mais. Essa diferença é o coração do controle financeiro.",
+        ],
+      ),
     ],
   },
   {
@@ -364,23 +606,47 @@ export const articles: Article[] = [
     category: "Custos",
     publishedAt: "2026-03-01",
     updatedAt: "2026-04-02",
-    readingTime: "5 min",
+    readingTime: "7 min",
+    author: editorialAuthor,
     sections: [
-      {
-        heading: "Taxa baixa nem sempre significa melhor margem",
-        paragraphs: [
-          "A taxa da maquininha precisa ser comparada ao fluxo de recebimento, ao prazo de liberação e ao ticket médio. O que parece barato pode travar capital de giro.",
-          "Por isso, o cálculo deve considerar impacto no mês, não só percentual anunciado.",
+      section("Taxa não é detalhe",
+        [
+          "A taxa da maquininha parece pequena quando aparece como percentual isolado, mas ela impacta diretamente a margem. Em um negócio de ticket baixo ou margem curta, alguns décimos de ponto percentual fazem diferença no acumulado do mês. Se a conta não entra no preço, a venda acaba financiando a plataforma.",
+          "A primeira pergunta é sempre o custo total efetivo da venda. Só depois faz sentido comparar bandeira, prazo e antecipação. O que importa é o líquido final no caixa, não a propaganda da operadora.",
         ],
-      },
-      {
-        heading: "Como olhar a taxa",
-        bullets: [
-          "Qual é o custo total por venda?",
-          "Quanto tempo o dinheiro leva para cair?",
-          "O volume de vendas compensa o encargo?",
+      ),
+      section("A análise correta",
+        [
+          "Para avaliar maquininha, some taxa percentual, tarifa fixa se houver, prazo de recebimento e eventual custo de antecipação. Em alguns casos, uma taxa nominal maior com repasse mais rápido pode ser melhor do que uma taxa menor com capital travado por mais tempo. O caixa decide o valor real.",
+          "Se a operação vende muito em poucos tickets, a taxa precisa ser absorvida com preço. Se vende pouco e com valor alto, o prazo pode pesar mais do que a tarifa. A análise deve acompanhar o perfil da operação, não um conselho genérico.",
         ],
-      },
+        [
+          "Calcule custo líquido por transação.",
+          "Compare prazo de repasse com necessidade de caixa.",
+          "Veja se a antecipação corrói margem.",
+          "Reavalie bandeira e adquirente quando o volume crescer.",
+        ],
+      ),
+      section("O ponto de equilíbrio",
+        [
+          "Todo negócio tem um ponto em que a conveniência de vender por cartão passa a custar demais. Se a taxa começa a consumir parte relevante da margem, o preço precisa ser reajustado ou o canal precisa ser reconfigurado. O pior cenário é continuar vendendo muito e sem lucro.",
+          "O ponto de equilíbrio não é fixo. Ele muda com volume, mix de produtos, sazonalidade e custo de capital. Por isso, a revisão da maquininha deve acontecer sempre que o negócio muda de patamar.",
+        ],
+      ),
+      section("Como repassar isso ao preço",
+        [
+          "A forma mais limpa de tratar a taxa é embutir no preço de venda. Assim, quem paga com cartão banca o custo do meio de pagamento sem distorcer a margem da operação. Em alguns nichos, vale até criar preço à vista e preço parcelado, desde que isso seja comunicado com clareza.",
+          "O importante é não fingir que a taxa não existe. Quando ela é ignorada, a empresa vende um pouco mais barato do que deveria e fecha o mês com sensação de trabalho sem retorno.",
+        ],
+      ),
+      section("Regras para não errar",
+        [
+          "Revise a taxa sempre que mudar o faturamento.",
+          "Use antecipação apenas em necessidade real de caixa.",
+          "Compare o líquido, não apenas a taxa nominal.",
+          "Atualize preço quando o custo de recebimento subir.",
+        ],
+      ),
     ],
   },
   {
@@ -390,20 +656,45 @@ export const articles: Article[] = [
     category: "Checklist",
     publishedAt: "2026-02-26",
     updatedAt: "2026-04-01",
-    readingTime: "6 min",
+    readingTime: "7 min",
+    author: editorialAuthor,
     sections: [
-      {
-        heading: "Antes de trocar",
-        bullets: [
-          "Verifique o impacto no imposto mensal.",
-          "Confirme se há custo de contador e conformidade.",
-          "Reveja preço de serviço e margem.",
-          "Teste o novo cenário no caixa de 3 meses.",
+      section("O que validar antes da troca",
+        [
+          "Migrar de MEI para PJ não é só abrir cadastro novo. Ã‰ revisar atividade, preço, custo de conformidade e necessidade de operação. Se esse conjunto não estiver pronto, a mudança pode trazer mais fricção do que benefício.",
+          "O primeiro passo é confirmar se a atividade principal realmente pede a nova estrutura. Depois, vale olhar faturamento projetado, contratos em andamento e capacidade de repassar o custo adicional no preço. A troca não deve ser emocional; deve ser operacional.",
         ],
-        paragraphs: [
-          "Se a migração for feita com base em expectativa e não em caixa projetado, o risco de frustração aumenta.",
+      ),
+      section("Valide o caixa por três meses",
+        [
+          "Antes de mudar, faça uma projeção de três meses com receita, custo, imposto e retirada. O objetivo é descobrir se o novo modelo sobrevive a um mês abaixo da média. Se não sobreviver, a transição precisa de mais preparo. Melhor mudar quando a empresa aguenta a pressão do que quando o limite já foi ultrapassado.",
+          "A projeção também ajuda a calibrar o pró-labore. Em muitos casos, a pessoa só percebe que o valor de retirada não cabe quando a empresa já está formalizada. O planejamento evita esse choque.",
         ],
-      },
+        [
+          "Receita prevista nos próximos três meses.",
+          "Custo fixo novo com contador e bancos.",
+          "Impacto da tributação no caixa.",
+          "Reserva para atraso de cliente ou sazonalidade.",
+        ],
+      ),
+      section("Recalcule o preço",
+        [
+          "Se a migração aumenta custo fixo, o preço precisa acompanhar. A empresa não pode absorver mudança tributária apenas com esperança de vender mais. Em serviço, isso é ainda mais importante porque o esforço do titular não aparece imediatamente na linha de custo.",
+          "Use o novo regime para redesenhar proposta de valor. Ã€s vezes, o cliente aceita pagar mais quando vê a operação mais organizada. Mas essa percepção só ajuda se a entrega e a gestão estiverem realmente mais maduras.",
+        ],
+      ),
+      section("Regularidade e documentos",
+        [
+          "Na migração, confira emissão de notas, inscrição municipal ou estadual, rotina de contratação de contador, acesso a certificado se necessário e atualização bancária. Pequenos detalhes de cadastro travam operação maior se forem deixados para depois.",
+          "Também vale preparar a documentação interna: calendário de imposto, centro de custo, pasta de documentos e rotina de fechamento. A formalidade não precisa ser burocrática; ela precisa ser previsível.",
+        ],
+      ),
+      section("Decisão final",
+        [
+          "Se o cenário PJ melhora margem, permite contratos melhores e não destrói o caixa, a mudança está madura. Se só ajuda no discurso, ainda falta estrutura. A migração certa é a que melhora o negócio inteiro, não apenas a imagem do cartão de visita.",
+          "O checklist existe para reduzir arrependimento. Quem muda com base em números enfrenta menos surpresa e consegue crescer com menos improviso.",
+        ],
+      ),
     ],
   },
   {
@@ -413,24 +704,45 @@ export const articles: Article[] = [
     category: "Preço",
     publishedAt: "2026-02-22",
     updatedAt: "2026-03-29",
-    readingTime: "7 min",
+    readingTime: "8 min",
+    author: editorialAuthor,
     sections: [
-      {
-        heading: "Preço precisa cobrir mais do que esforço",
-        paragraphs: [
-          "Serviço não se precifica só com base no tempo de execução. Também entram imposto, ferramentas, retrabalho, prazo de recebimento e capacidade ociosa.",
-          "Quando tudo isso fica invisível, o lucro some mesmo com agenda cheia.",
+      section("Preço começa na estrutura",
+        [
+          "Preço de serviço não nasce de comparação com concorrente, e sim da sua própria estrutura. Tempo gasto, custo fixo, imposto, ferramenta, retrabalho e margem mínima precisam estar embutidos. Se um desses itens fica fora da conta, o valor final passa a parecer competitivo enquanto destrói o lucro.",
+          "O serviço também precisa remunerar o risco de venda. Nem toda proposta vira contrato, nem todo contrato vira pagamento no prazo, e nem todo projeto termina sem ajustes. Quem precifica bem não assume que tudo será perfeito; ele prepara o preço para a realidade.",
         ],
-      },
-      {
-        heading: "Camadas do preço",
-        bullets: [
-          "Custo direto do serviço",
-          "Custo fixo mensal",
-          "Margem desejada",
-          "Imposto e taxas",
+      ),
+      section("A matemática simples que funciona",
+        [
+          "Uma fórmula de trabalho útil é calcular custo direto do serviço, acrescentar custo fixo proporcional, somar imposto estimado e depois aplicar margem desejada. O resultado precisa ser confrontado com o mercado, mas sem sacrificar a base econômica. Se o mercado não paga esse valor, talvez o modelo ou o posicionamento precise mudar.",
+          "Essa conta também ajuda a dividir serviços por prioridade. Projetos que consomem mais tempo, atenção e retrabalho precisam custar mais. Caso contrário, a agenda fica cheia e a margem continua pequena.",
         ],
-      },
+        [
+          "Custo direto da entrega.",
+          "Parte do custo fixo mensal.",
+          "Imposto estimado no regime.",
+          "Margem de lucro mínima desejada.",
+        ],
+      ),
+      section("O erro do preço emocional",
+        [
+          "Muitos profissionais cobram menos por medo de perder cliente. O problema é que esse desconto emocional raramente é compensado por volume. Em vez de aumentar lucro, ele só aumenta o esforço. O preço precisa ser forte o bastante para sustentar o negócio, não apenas para fechar a proposta.",
+          "Se a negociação sempre termina em desconto, isso é sinal de que o produto, a proposta de valor ou o posicionamento precisam de revisão. Preço baixo demais destrói percepção de qualidade e ainda aperta o caixa.",
+        ],
+      ),
+      section("Serviço recorrente exige outra lógica",
+        [
+          "Quando o serviço é recorrente, a margem deve considerar retenção, churn e carga de atendimento ao longo do tempo. O primeiro mês pode dar sensação de ganho, mas se o cliente gera suporte excessivo, a margem cai no acumulado. O contrato precisa ser precificado pelo ciclo inteiro, não pelo primeiro pedido.",
+          "Em recorrência, vale separar implantação de manutenção. A implantação cobre a entrada mais pesada de trabalho, e a manutenção cobre o acompanhamento. Essa divisão deixa a conta mais justa e reduz negociação confusa.",
+        ],
+      ),
+      section("Regra de revisão",
+        [
+          "Reveja preço quando custo, imposto ou tempo de entrega mudarem. Se a margem cair, o preço precisa acompanhar. Se a entrega ficar mais eficiente, o preço pode subir ou a margem pode melhorar. O importante é não congelar valor por hábito.",
+          "Preço bem feito protege caixa e dá liberdade para dizer não ao trabalho ruim.",
+        ],
+      ),
     ],
   },
   {
@@ -440,19 +752,297 @@ export const articles: Article[] = [
     category: "Fluxo",
     publishedAt: "2026-02-18",
     updatedAt: "2026-03-27",
-    readingTime: "5 min",
+    readingTime: "7 min",
+    author: editorialAuthor,
     sections: [
-      {
-        heading: "Fechamento mensal em três perguntas",
-        bullets: [
-          "Quanto entrou de fato?",
-          "Quanto saiu em custo e imposto?",
-          "Quanto pode ser retirado sem comprometer o próximo ciclo?",
+      section("Fluxo de caixa não é faturamento",
+        [
+          "Fluxo de caixa é a fotografia do dinheiro disponível depois de entradas e saídas. Faturamento mostra atividade comercial, mas não conta prazo de recebimento, antecipação, taxas e compromissos futuros. Se o empreendedor confunde essas duas coisas, ele acha que o mês foi bom só porque vendeu muito.",
+          "Ler caixa no fim do mês é olhar a verdade da operação. O dinheiro que ficou é o que sustenta imposto, retirada, reinvestimento e próximos pagamentos. Sem esse olhar, o negócio pode até parecer movimentado, mas continua sem fôlego.",
         ],
-        paragraphs: [
-          "Se o negócio responde isso com clareza, a tomada de decisão fica simples. Se não responde, o problema não é lucro, é visibilidade.",
+      ),
+      section("As três perguntas do fechamento",
+        [
+          "Um fechamento simples e útil responde três perguntas: quanto entrou, quanto saiu e quanto sobrou. Parece básico, mas muitas empresas pequenas nunca formalizam essa rotina. Quando o fechamento vira hábito, a empresa passa a tomar decisão com dado, não com sensação.",
+          "Essas respostas ainda permitem separar o que é operação, imposto e retirada. Se o caixa ficou negativo, o problema pode estar em preço, prazo, custo ou expansão prematura. O fechamento mensal entrega pistas objetivas sobre isso.",
         ],
-      },
+        [
+          "Quanto entrou de fato na conta.",
+          "Quanto saiu em custo e imposto.",
+          "Quanto pode virar retirada sem quebrar o próximo mês.",
+          "Quais recebíveis ainda não caíram e já estão comprometidos.",
+        ],
+      ),
+      section("Como interpretar mês apertado",
+        [
+          "Mês apertado nem sempre significa negócio ruim. Ã€s vezes, a operação está crescendo e consumindo caixa para ganhar escala. Outras vezes, a empresa apenas está sem controle e gastando sem margem. O fechamento revela qual desses cenários é o seu.",
+          "Se a atividade é sazonal, o caixa precisa ser lido em bloco de vários meses. Julgar um mês isolado pode levar a decisão errada. O que importa é a tendência e a reserva acumulada para atravessar os períodos mais fracos.",
+        ],
+      ),
+      section("O que fazer quando sobra pouco",
+        [
+          "Quando sobra pouco, o primeiro passo não é cortar tudo. Ã‰ identificar onde a margem está sendo consumida: taxa, preço baixo, retrabalho, atraso de cliente ou custo fixo excessivo. Cortar sem diagnóstico pode reduzir capacidade de vender e piorar a situação.",
+          "Em muitos casos, basta melhorar cobrança, revisar prazo ou subir preço em parte do portfólio. O caixa responde rápido a ajustes simples quando a causa real está clara. Por isso o fechamento mensal é ferramenta de gestão, não burocracia.",
+        ],
+      ),
+      section("Método de leitura prática",
+        [
+          "Feche o mês em uma planilha ou sistema simples, com entradas, saídas, saldo inicial e saldo final. Depois destaque impostos, retirada do titular e despesas extraordinárias. Essa leitura ajuda a diferenciar problema operacional de evento pontual.",
+          "Quando o empresário faz isso por alguns meses seguidos, enxerga a própria sazonalidade e para de decidir por impulso. O fluxo de caixa vira ferramenta de controle e crescimento.",
+        ],
+      ),
+    ],
+  },
+  {
+    slug: "como-abrir-cnpj-mei-2026",
+    title: "Como abrir um CNPJ MEI em 2026: passo a passo completo",
+    description: "Guia prático para formalizar o MEI com segurança, entender requisitos e evitar erros na abertura.",
+    category: "Formalização",
+    publishedAt: "2026-04-08",
+    updatedAt: "2026-04-18",
+    readingTime: "8 min",
+    author: editorialAuthor,
+    sections: [
+      section("Verifique se você pode ser MEI",
+        [
+          "Antes de abrir o CNPJ, confirme se a atividade está permitida no MEI, se você não é sócio ou administrador de outra empresa e se não terá mais de um funcionário. A formalização só faz sentido quando o enquadramento é realmente compatível com o seu trabalho. Isso evita retrabalho logo depois de abrir.",
+          officialMeiLimit,
+        ],
+        [
+          "Atividade precisa constar na lista permitida do MEI.",
+          "Não pode ter participação incompatível em outra empresa.",
+          "O limite de contratação continua sendo de um empregado.",
+          "O faturamento precisa caber no limite legal de 2026.",
+        ],
+      ),
+      section("Passo a passo da abertura",
+        [
+          "A formalização do MEI é feita online no Portal do Empreendedor. O processo pede dados pessoais, endereço, atividade principal, atividades secundárias e informações básicas sobre o negócio. O ponto importante não é correr, e sim preencher corretamente para evitar divergência depois.",
+          "Depois da abertura, o empreendedor recebe o CNPJ, inscrição na Junta quando aplicável, número do certificado e acesso às rotinas de emissão e pagamento. A formalização é rápida, mas a organização só começa de verdade quando o controle financeiro entra em rotina.",
+        ],
+        [
+          "Separar atividade principal e secundárias.",
+          "Conferir endereço e dados pessoais.",
+          "Salvar o comprovante de formalização.",
+          "Organizar imediatamente emissão de nota e pagamento do DAS.",
+        ],
+      ),
+      section("O que fazer no primeiro dia",
+        [
+          "No primeiro dia, crie conta separada, registre como serão recebidos os clientes e defina a rotina de reserva do DAS. Esse começo importa mais do que parece, porque o hábito construído no início costuma definir a saúde do caixa no restante do ano. Abrir CNPJ sem rotina é só criar mais uma conta para esquecer.",
+          "Também é recomendável registrar o que você vende, quanto cobra e quais custos já existem. A formalização não resolve preço ruim nem bagunça financeira. Ela só dá base para organizar melhor o negócio.",
+        ],
+      ),
+      section("Erros comuns na abertura",
+        [
+          "Um erro comum é escolher atividade errada ou abrir sem conferir se a ocupação está realmente enquadrada. Outro erro é misturar conta pessoal e negócio desde o primeiro mês, o que estraga a leitura de faturamento. Há ainda quem abra o MEI e só descubra depois que precisava de outra estrutura.",
+          "Por isso, a abertura deve ser acompanhada de planejamento simples. Se o negócio já nasce com tendência de crescer rápido, talvez valha desenhar a transição futura para PJ desde agora. O MEI é porta de entrada, não destino final para todo mundo.",
+        ],
+      ),
+      section("Próxima ação depois de abrir",
+        [
+          "Depois de abrir, organize o que entra, o que sai e o que precisa ser pago até o dia 20. O CNPJ formaliza, mas a disciplina sustenta. Quem abre e se organiza cedo sofre menos com imposto, atraso e crescimento descontrolado.",
+          "Se você usa o MEI como etapa de estruturação, o resultado costuma ser melhor. O regime funciona muito bem quando o empreendedor o trata como ferramenta de organização e não como desculpa para improviso.",
+        ],
+      ),
+    ],
+  },
+  {
+    slug: "das-mei-2026-valores-vencimento",
+    title: "DAS MEI 2026: valores, vencimento e como pagar",
+    description: "Veja quanto o MEI paga em 2026, quando vence o DAS e como evitar atraso e multa.",
+    category: "Impostos",
+    publishedAt: "2026-04-09",
+    updatedAt: "2026-04-19",
+    readingTime: "8 min",
+    author: editorialAuthor,
+    sections: [
+      section("Valores oficiais de 2026",
+        [
+          officialMeiContribution2026,
+          "Esses valores partem da contribuição previdenciária do MEI e somam ICMS e ISS conforme a atividade. O importante é entender que o valor mensal não é aleatório: ele é atualizado com base no salário mínimo e nas obrigações associadas ao tipo de atividade. Em 2026, o número deve ser conhecido desde o início do ano para evitar surpresa no caixa.",
+        ],
+        [
+          "R$ 81,05: contribuição previdenciária padrão.",
+          "R$ 82,05: comércio e indústria com ICMS.",
+          "R$ 86,05: prestação de serviços com ISS.",
+          "R$ 87,05: atividade mista com ICMS e ISS.",
+        ],
+      ),
+      section("Vencimento todo dia 20",
+        [
+          "O DAS MEI vence todo dia 20 do mês seguinte à competência. Isso significa que o dinheiro precisa estar reservado antes do prazo, principalmente para quem recebe em datas irregulares. Se o cliente paga no fim do mês e o repasse cai alguns dias depois, a reserva precisa compensar essa defasagem.",
+          "Muita empresa pequena trata o dia 20 como se fosse distante, mas no fluxo de caixa ele chega rápido. O ideal é programar lembrete e reserva automática. Assim, o imposto deixa de depender do humor do mês.",
+        ],
+      ),
+      section("Como pagar sem erro",
+        [
+          "O pagamento pode ser feito pelo Portal do Simples Nacional, pelo App MEI ou pelos canais oficiais indicados para o DAS. Antes de pagar, confira se a atividade está correta e se o valor reflete ICMS ou ISS. Um erro simples de tipo de atividade muda o total final e pode criar dor de cabeça depois.",
+          "Se o negócio tem comércio e serviço misturados, a conferência precisa ser dupla. Nesses casos, o empreendedor não pode assumir que o valor sempre será o mesmo todo mês. A composição muda conforme a atividade informada.",
+        ],
+        [
+          "Conferir o tipo de atividade antes de emitir.",
+          "Pagar até o dia 20 do mês seguinte.",
+          "Guardar o comprovante junto do fechamento mensal.",
+          "Não usar o dinheiro do DAS como saldo de emergência.",
+        ],
+      ),
+      section("O que acontece com atraso",
+        [
+          "Atraso gera multa e pode comprometer regularidade do CNPJ. Além do custo financeiro, o atraso atrapalha acesso a documentos, organização da empresa e confiança na gestão do negócio. Quando o MEI acumula atraso, o problema deixa de ser mensal e vira estrutural.",
+          "A melhor forma de evitar isso é tratar o DAS como despesa automática e não como pagamento opcional. O imposto precisa estar separado assim que a receita entra, especialmente em meses com faturamento alto.",
+        ],
+      ),
+      section("Rotina que resolve",
+        [
+          "Crie uma rotina simples: conferir faturamento, reservar o valor do DAS, pagar antes do vencimento e arquivar comprovante. Esse processo leva poucos minutos e economiza muito tempo de correção depois. Quem mantém esse hábito raramente perde controle do imposto.",
+          "O MEI funciona melhor quando a disciplina é leve e constante. O valor é pequeno, mas o hábito é grande.",
+        ],
+      ),
+    ],
+  },
+  {
+    slug: "nota-fiscal-mei-como-emitir",
+    title: "Nota fiscal MEI: quando emitir e como fazer",
+    description: "Entenda quando o MEI precisa emitir nota, como organizar a rotina e quais cuidados práticos evitar.",
+    category: "Nota Fiscal",
+    publishedAt: "2026-04-10",
+    updatedAt: "2026-04-20",
+    readingTime: "8 min",
+    author: editorialAuthor,
+    sections: [
+      section("Quando a nota é obrigatória",
+        [
+          "O MEI precisa emitir nota fiscal em vendas ou prestações de serviço para pessoa jurídica, salvo exceções legais específicas. Para pessoa física, a regra depende do tipo de operação e da prática comercial adotada. O ponto mais importante é não tratar nota como detalhe administrativo, porque ela organiza receita, comprovação e relacionamento com cliente.",
+          "Quem vende para empresa costuma ter exigência contratual de emissão recorrente. Nesse cenário, a falta de organização gera atraso no recebimento e pode comprometer confiança comercial. A nota fiscal também ajuda a separar o que foi vendido do que foi recebido.",
+        ],
+      ),
+      section("Como estruturar a rotina",
+        [
+          "Emitir nota não deve ser tarefa improvisada. O ideal é criar um checklist: confirmação do serviço, conferência dos dados do cliente, data correta, descrição clara da atividade e arquivamento do comprovante. Quando a rotina existe, o erro cai muito e o atendimento fica mais profissional.",
+          "Para quem tem volume maior, vale separar uma janela fixa do dia ou da semana para emitir documentos e conciliar com o caixa. Isso evita acumular burocracia no fim do mês e ajuda a perceber se algum cliente ainda não pagou ou se a receita está sendo registrada de forma correta.",
+        ],
+        [
+          "Conferir dados do tomador antes de emitir.",
+          "Descrever o serviço com clareza.",
+          "Guardar nota junto do controle financeiro.",
+          "Usar uma rotina fixa para não acumular emissão.",
+        ],
+      ),
+      section("O que pode gerar problema",
+        [
+          "Erro de cadastro, descrição genérica, data errada e falha na conferência do cliente são problemas comuns. Eles parecem pequenos, mas costumam gerar retrabalho e atraso. Em operações com vários pedidos, um documento mal emitido derruba a organização inteira.",
+          "Outro problema é usar a nota como se fosse prova de lucro. Ela é prova de faturamento, não de resultado. O lucro depende de custo, imposto, taxa e retirada. Quem entende isso para de olhar nota como dinheiro disponível.",
+        ],
+      ),
+      section("Nota fiscal e preço",
+        [
+          "Quando o cliente exige nota, o preço precisa considerar o custo administrativo de emissão e o imposto associado. Mesmo que o MEI tenha imposto fixo, a operação de atender pessoa jurídica costuma demandar mais controle. Esse esforço tem valor e deve entrar na proposta comercial.",
+          "Se a emissão de nota vir acompanhado de prazo, cobrança e acompanhamento mais exigente, o preço precisa absorver isso. O serviço não vale só pelo ato principal; vale pelo conjunto de entrega e organização.",
+        ],
+      ),
+      section("Como manter sem bagunça",
+        [
+          "Tenha uma pasta de notas emitidas, uma pasta de notas recebidas e um fechamento mensal. Isso já resolve a maior parte da dor. O importante é não confiar em busca solta no e-mail quando a empresa precisar comprovar histórico.",
+          "Nota fiscal é instrumento de profissionalização. Quando usada com rotina, ela melhora a percepção do cliente e também do próprio empreendedor sobre a saúde do negócio.",
+        ],
+      ),
+    ],
+  },
+  {
+    slug: "limite-faturamento-mei-2026",
+    title: "Limite de faturamento MEI 2026: o que acontece se ultrapassar",
+    description: "Saiba o que muda quando o MEI passa do limite e como agir para evitar prejuízo e desenquadramento.",
+    category: "Limite",
+    publishedAt: "2026-04-11",
+    updatedAt: "2026-04-21",
+    readingTime: "8 min",
+    author: editorialAuthor,
+    sections: [
+      section("O limite precisa ser monitorado o ano inteiro",
+        [
+          officialMeiLimit,
+          "O acompanhamento não pode esperar dezembro. Quando a receita cresce em ritmo forte, o risco de ultrapassar o teto aparece cedo. Isso é especialmente comum em negócios sazonais, em serviços recorrentes e em operações que começaram pequenas, mas ganharam tração rapidamente.",
+        ],
+      ),
+      section("O que acontece no excesso",
+        [
+          "Quando o faturamento ultrapassa o limite, o enquadramento pode ser afetado e a empresa pode precisar migrar de regime, com efeitos que variam conforme o excesso e o momento do ano. O problema não é só burocrático; ele pode alterar imposto, obrigação contábil e planejamento de retirada.",
+          "Por isso, ficar 'esperando para ver' é arriscado. O empreendedor precisa acompanhar acumulado mensal, projeção e tendência. Assim, se houver risco de ultrapassar o teto, a transição pode ser preparada sem correria.",
+        ],
+        [
+          "Acompanhar acumulado mensal, não apenas média.",
+          "Projetar 3 a 6 meses à frente.",
+          "Preparar migração antes de o limite virar surpresa.",
+          "Revisar preço e volume quando o teto estiver próximo.",
+        ],
+      ),
+      section("Como o excesso bagunça o caixa",
+        [
+          "Passar do limite geralmente vem acompanhado de crescimento de receita, mas isso não significa crescimento de margem. Em muitos casos, o negócio vende mais e fica mais apertado porque o preço não subiu, o custo acompanhou e a estrutura não foi ajustada. O faturamento maior pode enganar.",
+          "A melhor forma de evitar prejuízo é prever a transição antes que ela seja compulsória. Quanto mais cedo o empreendedor entende o risco, mais espaço tem para revisar preço, reserva de imposto e organização documental.",
+        ],
+      ),
+      section("Como evitar o susto",
+        [
+          "Feche o faturamento todo mês e atualize uma projeção do ano. Se a tendência apontar para próximo do limite, ajuste o negócio imediatamente. Isso pode significar subir preço, desacelerar promoções, revisar mix de serviço ou preparar documentação para outro regime.",
+          "Também é válido discutir o cenário com contador antes do problema aparecer. A melhor migração é planejada. Quando o limite é acompanhado com antecedência, a empresa não para e o caixa sofre menos.",
+        ],
+      ),
+      section("Regra prática",
+        [
+          "Se o negócio começou a depender de explicação longa para caber no MEI, talvez ele já esteja pedindo outro enquadramento. O limite existe para proteger a simplicidade do regime. Quando a operação cresce acima dele, insistir pode sair mais caro do que mudar com método.",
+          "O acompanhamento mensal é a peça que evita desenquadramento surpresa e mantém o empreendedor no controle.",
+        ],
+      ),
+    ],
+  },
+  {
+    slug: "pro-labore-vs-distribuicao-lucros",
+    title: "Pró-labore x distribuição de lucros: qual vale mais para o PJ",
+    description: "Compare retirada formal, distribuição de lucros e impacto tributário na gestão do negócio.",
+    category: "Pró-labore",
+    publishedAt: "2026-04-12",
+    updatedAt: "2026-04-22",
+    readingTime: "9 min",
+    author: editorialAuthor,
+    sections: [
+      section("Cada retirada tem função diferente",
+        [
+          "Pró-labore remunera o trabalho e a gestão do titular. Distribuição de lucros remunera o resultado econômico da empresa. Misturar esses conceitos cria confusão operacional e, em alguns casos, fiscal. Quando o empreendedor entende a diferença, a retirada fica mais limpa e a empresa ganha estrutura.",
+          "A decisão entre um e outro não é só tributária. Ela também é de governança. Empresas que organizam bem a retirada conseguem planejar caixa, separar reserva e medir o que é performance do negócio e o que é salário do dono.",
+        ],
+      ),
+      section("O papel do pró-labore",
+        [
+          "O pró-labore deve existir como remuneração regular pela atuação do titular. Ele ajuda a prever retirada, organizar contribuição e dar base para planejamento pessoal. Em negócios pequenos, esse valor precisa ser compatível com a capacidade do caixa, e não com a vontade do mês.",
+          "Se o pró-labore é ignorado, o empreendedor retira dinheiro de forma difusa e depois tenta chamar isso de lucro. Isso prejudica tanto a leitura da empresa quanto a clareza da pessoa física. O certo é dar nome correto ao que está sendo pago.",
+        ],
+        [
+          "Pró-labore precisa ser previsível.",
+          "O valor deve caber no caixa recorrente.",
+          "Ele não substitui o lucro, apenas remunera trabalho.",
+          "Sem pró-labore, a gestão fica confusa e difícil de auditar.",
+        ],
+      ),
+      section("O que a distribuição de lucros faz",
+        [
+          "Distribuição de lucros só faz sentido quando a empresa apurou resultado positivo e isso está organizado de maneira contábil. Ela não deve ser usada para cobrir retirada desordenada ao longo do mês. Quando isso acontece, a empresa perde consistência e pode parecer mais lucrativa do que realmente é.",
+          "A vantagem da distribuição de lucros é que ela pode ser mais eficiente do ponto de vista tributário, desde que a empresa esteja estruturada corretamente. Mas eficiência sem organização é ilusão. Primeiro vem a contabilidade; depois, a distribuição.",
+        ],
+      ),
+      section("Como decidir o melhor arranjo",
+        [
+          "Na prática, a maioria dos pequenos PJ precisa dos dois mecanismos: pró-labore fixo e distribuição de lucros quando houver resultado. O primeiro dá previsibilidade; o segundo reconhece o desempenho do negócio. Essa separação simplifica o caixa e evita que o dono leve dinheiro sem critério.",
+          "O arranjo ideal depende do faturamento, do custo de conformidade e da estrutura contábil. Se a empresa ainda não está organizada, a prioridade é montar uma rotina consistente. Só depois faz sentido discutir a otimização fina da retirada.",
+        ],
+      ),
+      section("Regra final",
+        [
+          "Se a empresa é pequena, o melhor modelo é o que combina simplicidade, clareza e regularidade. Pró-labore e distribuição de lucros não competem; eles se complementam. A escolha certa é a que sustenta o negócio sem apagar a diferença entre salário e resultado.",
+          "Quando essa lógica está clara, a retirada deixa de ser improviso e passa a ser parte da estratégia financeira do PJ.",
+        ],
+      ),
     ],
   },
 ];

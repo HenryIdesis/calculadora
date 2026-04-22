@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { articles } from "@/data/articles";
 import { site } from "@/lib/site";
 
-const staticRoutes = ["/", "/ferramenta", "/guia", "/sobre", "/contato", "/privacidade", "/termos", "/faq"];
+const staticRoutes = ["/", "/ferramenta", "/guia", "/sobre", "/contato", "/privacidade", "/disclaimer", "/termos", "/faq"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -23,4 +23,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [...staticEntries, ...articleEntries];
 }
-

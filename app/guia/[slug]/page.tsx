@@ -5,6 +5,7 @@ import { ArrowRight, Clock3, CalendarDays, BadgeInfo } from "lucide-react";
 import { Container } from "@/components/container";
 import { AdSlot } from "@/components/ad-slot";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { AuthorBadge } from "@/components/author-badge";
 import { buildMetadata } from "@/lib/seo";
 import { articles, getArticleBySlug } from "@/data/articles";
 import { formatDateBR } from "@/lib/format";
@@ -54,8 +55,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     dateModified: article.updatedAt,
     mainEntityOfPage: canonical,
     author: {
-      "@type": "Organization",
-      name: "Finanças para MEI/PJ",
+      "@type": "Person",
+      name: article.author.name,
+      jobTitle: article.author.role,
     },
     publisher: {
       "@type": "Organization",
@@ -80,6 +82,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <article>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[color:var(--accent)]">{article.category}</p>
             <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">{article.title}</h1>
+            <AuthorBadge name={article.author.name} role={article.author.role} />
             <p className="mt-4 text-base leading-8 text-[color:var(--muted)]">{article.description}</p>
 
             <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-[color:var(--muted)]">
@@ -101,6 +104,18 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               <p className="text-sm leading-7 text-[color:var(--muted)]">
                 Resumo prático: {article.description}
               </p>
+            </div>
+
+            <div className="mt-8 overflow-hidden rounded-[2rem] border border-[color:var(--border)] bg-[linear-gradient(135deg,var(--brand),var(--brand-strong),#0b1220)] text-white shadow-soft">
+              <div className="aspect-[16/9] w-full p-5 sm:p-7">
+                <div className="flex h-full flex-col justify-between">
+                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/70">{article.category}</p>
+                  <div className="mx-auto max-w-2xl text-center">
+                    <p className="text-2xl font-semibold leading-tight sm:text-3xl lg:text-4xl">{article.title}</p>
+                  </div>
+                  <div className="text-xs text-white/65">Leitura editorial com foco em decisão financeira e contexto tributário.</div>
+                </div>
+              </div>
             </div>
 
             <div className="article-content mt-8">
